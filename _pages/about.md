@@ -12,9 +12,9 @@ I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences,
 
 News
 ======
-* **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by Forty-Second International Conference on Machine Learning (ICML 2025).
+* **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025).
 * **February 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is now available on [arxiv](https://arxiv.org/abs/2406.05428).
-* **May 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by The 37th Annual Conference on Learning Theory (COLT 2024). [pdf](https://proceedings.mlr.press/v247/huang24b.html)
+* **May 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by the 37th Annual Conference on Learning Theory (COLT 2024). [pdf](https://proceedings.mlr.press/v247/huang24b.html)
 
 
 Awards
