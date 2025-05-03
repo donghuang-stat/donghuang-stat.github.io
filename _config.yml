@@ -22,14 +22,14 @@ repository               : "donghuang-stat/donghuang-stat.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "pagehead.jpg"
   name             : "Dong Huang"
   pronouns         : # example: "she/her"  
   bio              : "Phd Student in Statistics"
   location         : "Beijing"
   employer         : #"Red Brick University"
   uri              : # URL
-  email            : "hd23[at]mails.tsinghua.edu.cn" 
+  email            : #"hd23[at]mails.tsinghua.edu.cn" 
 
   # Academic websites
   academia         : # URL
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : #"bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
