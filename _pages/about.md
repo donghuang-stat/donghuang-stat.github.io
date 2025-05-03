@@ -19,9 +19,10 @@ News
 
 Awards
 ======
+* **December 2024**: Excellent Teaching Assistant of Tsinghua University
 * **November 2024**: Comprehensive Scholarship of Tsinghua University
 * **June 2023**: Outstanding Graduates of Tsinghua University
-* **November 2024**: Comprehensive Scholarship of Tsinghua University
+* **November 2022**: Comprehensive Scholarship of Tsinghua University
 * **November 2021**: Excellent Scholarship for Scientific Research and Innovation of Tsinghua University  
 * **December 2020**: First Prize in National College Student Mathematics Competition  
 * **November 2020**: 12·9 Scholarship of Tsinghua University  
@@ -29,3 +30,12 @@ Awards
 * **November 2020**: Academic Excellence Scholarship of Tsinghua University
 * **September 2018**: First Prize in the National High School Mathematics Competition
 * **August 2018**: Gold Medal in the Southeastern China Mathematical Olympiad
+
+Teaching
+======
+* **2023 Fall and 2024 Fall**: Elementary Probability Theory, Teaching Assistant, Tsinghua University.
+* **2024 Spring and 2025 Spring**: Multivariate Statistical Analysis, Teaching Assistant, Tsinghua University.
+
+Contact
+======
+hd23[at]mails.tsinghua.edu.cn
