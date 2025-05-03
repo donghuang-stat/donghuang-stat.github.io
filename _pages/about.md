@@ -38,4 +38,4 @@ Teaching
 
 Contact
 ======
-hd23[at]mails[dot]tsinghua[dot]edu[dot]cn
+hd23 [at] mails [dot] tsinghua [dot] edu [dot] cn
