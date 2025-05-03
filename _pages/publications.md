@@ -9,56 +9,14 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **D. Huang**, P. Yang, $(\alpha-\beta)$, **Testing correlation in graphs by counting bounded degree motifs**, *submited*.
+* **D. Huang**, P. Yang, $(\alpha-\beta)$, **Sample Complexity of Correlation Detection in the Gaussian Wigner Model**, *The 42nd International Conference on Machine Learning*, 2025.
+* **D. Huang**, X. Song, P. Yang, $(\alpha-\beta)$, **Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs**.
+  * Short version: *The 37th Annual Conference on Learning Theory*, 2494-2518, 2024. [pdf](https://proceedings.mlr.press/v247/huang24b.html)
+  * Long version: *submited*. [arxiv](https://arxiv.org/abs/2406.05428)
+* Y. Lin, S.Li, J. Xu, J.Xu, **D. Huang**, W. Zheng, Y. Cao, J. Lu, **Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network**, *Neurocomputing*, Volume 534, pp. 77-85, 2023. [pdf](https://www.sciencedirect.com/science/article/pii/S0925231223002047)
 
-Work experience
+Working papers
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* **D. Huang**, P. Yang, $(\alpha-\beta)$, **Sample Complexity of Correlation Detection in Erdős-Rényi graphs**.
+* **D. Huang**, X. Song, P. Yang, $(\alpha-\beta)$, **Alignments in the partially correlated graphs of unknown size**.
