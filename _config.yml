@@ -29,7 +29,7 @@ author:
   location         : "Beijing"
   employer         : "Tsinghua University"
   uri              : # URL
-  email            : "hd23@mails.tsinghua.edu.cn" 
+  email            : #"hd23@mails.tsinghua.edu.cn" 
 
   # Academic websites
   academia         : # URL
