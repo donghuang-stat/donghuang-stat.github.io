@@ -25,11 +25,11 @@ author:
   avatar           : "pagehead.jpg"
   name             : "Dong Huang (黄栋)"
   pronouns         : # example: "she/her"  
-  bio              : "Phd Student in Statistics"
+  bio              : "Phd Candidate in Statistics"
   location         : "Beijing"
-  employer         : #"Red Brick University"
+  employer         : "Tsinghua University"
   uri              : # URL
-  email            : #"hd23[at]mails.tsinghua.edu.cn" 
+  email            : "hd23@mails.tsinghua.edu.cn" 
 
   # Academic websites
   academia         : # URL
