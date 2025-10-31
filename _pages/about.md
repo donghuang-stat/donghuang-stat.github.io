@@ -21,6 +21,7 @@ News
 
 Awards
 ======
+* **November 2025**: Comprehensive Scholarship of Tsinghua University
 * **December 2024**: Excellent Teaching Assistant of Tsinghua University
 * **November 2024**: Comprehensive Scholarship of Tsinghua University
 * **June 2023**: Outstanding Graduates of Tsinghua University
