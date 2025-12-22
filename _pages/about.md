@@ -16,8 +16,8 @@ News
 * **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
 * **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025). [arxiv](https://arxiv.org/abs/2505.14138)
-* **February 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is now available on [arxiv](https://arxiv.org/abs/2406.05428).
-* **May 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by the 37th Annual Conference on Learning Theory (COLT 2024). [pdf](https://proceedings.mlr.press/v247/huang24b.html)
+<!--* **February 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is now available on [arxiv](https://arxiv.org/abs/2406.05428).
+* **May 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by the 37th Annual Conference on Learning Theory (COLT 2024). [pdf](https://proceedings.mlr.press/v247/huang24b.html) -->
 
 Funding
 ======
@@ -25,23 +25,20 @@ Funding
 
 Awards
 ======
-* **November 2025**: Comprehensive Scholarship of Tsinghua University
-* **December 2024**: Excellent Teaching Assistant of Tsinghua University
-* **November 2024**: Comprehensive Scholarship of Tsinghua University
-* **June 2023**: Outstanding Graduates of Tsinghua University
-* **November 2022**: Comprehensive Scholarship of Tsinghua University
-* **November 2021**: Excellent Scholarship for Scientific Research and Innovation of Tsinghua University  
-* **December 2020**: First Prize in National College Student Mathematics Competition  
-* **November 2020**: 12·9 Scholarship of Tsinghua University  
-* **November 2020**: Comprehensive Scholarship of Tsinghua University  
-* **November 2020**: Academic Excellence Scholarship of Tsinghua University
-* **September 2018**: First Prize in the National High School Mathematics Competition
-* **August 2018**: Gold Medal in the Southeastern China Mathematical Olympiad
+* **2020, 2022, 2024, 2025**: Comprehensive Scholarship of Tsinghua University
+* **2024**: Excellent Teaching Assistant of Tsinghua University
+* **2023**: Outstanding Graduates of Tsinghua University
+* **2021**: Excellent Scholarship for Scientific Research and Innovation of Tsinghua University  
+* **2020**: First Prize in National College Student Mathematics Competition  
+* **2020**: Academic Excellence Scholarship of Tsinghua University
+* **2018**: First Prize in the National High School Mathematics Competition
+* **2018**: Gold Medal in the Southeastern China Mathematical Olympiad
 
 Teaching
 ======
-* **2023 Fall and 2024 Fall**: Elementary Probability Theory, Teaching Assistant, Tsinghua University.
+* **2025 Fall**: Mathematical Analysis & Advanced Linear Algebra (Undergraduate, Department of Statistics), Academic Advisor, Tsinghua University.
 * **2024 Spring and 2025 Spring**: Multivariate Statistical Analysis, Teaching Assistant, Tsinghua University.
+* **2023 Fall and 2024 Fall**: Elementary Probability Theory, Teaching Assistant, Tsinghua University.
 
 Contact
 ======
