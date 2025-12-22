@@ -16,8 +16,6 @@ News
 * **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
 * **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025). [arxiv](https://arxiv.org/abs/2505.14138)
-<!--* **February 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is now available on [arxiv](https://arxiv.org/abs/2406.05428).
-* **May 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by the 37th Annual Conference on Learning Theory (COLT 2024). [pdf](https://proceedings.mlr.press/v247/huang24b.html) -->
 
 Funding
 ======
