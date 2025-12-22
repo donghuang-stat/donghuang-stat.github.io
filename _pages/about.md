@@ -19,8 +19,8 @@ News
 
 Education
 ======
-* **2023-now**: Ph.D in Statistics from Department of Statistics and Data Science, Tsinghua University
-* **2019-2023**: B.S. in Mathematics from Department of Mathetical Sciences, Tsinghua University
+* **2023-now**: Ph.D in Statistics, Department of Statistics and Data Science, Tsinghua University
+* **2019-2023**: B.S. in Mathematics, Department of Mathetical Sciences, Tsinghua University
 
 Funding
 ======
