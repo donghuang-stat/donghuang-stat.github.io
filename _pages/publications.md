@@ -17,5 +17,5 @@ redirect_from:
 
 Manuscripts
 ======
-* **D. Huang**, P. Yang, (α-β), **Testing Correlation in Graphs by Counting Bounded Degree Motifs**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
-* **D. Huang**, P. Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://www.arxiv.org/abs/2510.25289)
+* **D. Huang**, P. Yang, (α-β), **Testing Correlation in Graphs by Counting Bounded Degree Motifs**, *submitted*. [arxiv](https://www.arxiv.org/abs/2510.25289)
+* **D. Huang**, P. Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
