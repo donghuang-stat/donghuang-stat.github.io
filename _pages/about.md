@@ -12,7 +12,7 @@ I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences,
 
 News
 ======
-* **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/pdf/2601.13966).
+* **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/abs/2601.13966).
 * **December 2025**: Awarded the Young Elite Scientists Sponsorship Program (Doctoral Student Special Program) by the China Association for Science and Technology.
 * **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
