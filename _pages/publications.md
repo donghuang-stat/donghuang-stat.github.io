@@ -13,7 +13,7 @@ redirect_from:
 * **D. Huang**, X. Song, P. Yang, (α-β), **Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs**.
   * Short version: *the 37th Annual Conference on Learning Theory (COLT)*, 2024. [conference](https://proceedings.mlr.press/v247/huang24b.html)
   * Long version: *IEEE Transactions on Information Theory*, 2025. [arxiv](https://arxiv.org/abs/2406.05428) [journal](https://ieeexplore.ieee.org/document/11197490)
-* Y. Lin, S.Li, J. Xu, J.Xu, **D. Huang**, W. Zheng, Y. Cao, J. Lu, **Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network**, *Neurocomputing*, 2023. [pdf](https://www.sciencedirect.com/science/article/pii/S0925231223002047)
+* Y. Lin, S.Li, J. Xu, J.Xu, **D. Huang**, W. Zheng, Y. Cao, J. Lu, **Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network**, *Neurocomputing*, 2023. [journal](https://www.sciencedirect.com/science/article/pii/S0925231223002047)
 
 Manuscripts
 ======
