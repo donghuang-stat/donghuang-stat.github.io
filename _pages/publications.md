@@ -19,4 +19,3 @@ Manuscripts
 ======
 * **Dong Huang**, Pengkun Yang, (α-β), **Testing Correlation in Graphs by Counting Bounded Degree Motifs**, *submitted*. [arxiv](https://www.arxiv.org/abs/2510.25289)
 * **Dong Huang**, Pengkun Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
-* **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Sharp Statistical Limits and Algorithm for Attributed Graph Alignment**.
