@@ -13,7 +13,6 @@ I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences,
 News
 ======
 * **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/abs/2601.13966).
-* **December 2025**: Awarded the Young Elite Scientists Sponsorship Program (Doctoral Student Special Program) by the China Association for Science and Technology.
 * **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
 * **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025). [arxiv](https://arxiv.org/abs/2505.14138)
@@ -22,10 +21,6 @@ Education
 ======
 * **2023-now**: Ph.D in Statistics, Department of Statistics and Data Science, Tsinghua University
 * **2019-2023**: B.S. in Mathematics, Department of Mathetical Sciences, Tsinghua University
-
-Funding
-======
-* **2026-2027**: Young Elite Scientists Sponsorship Program - Doctoral Student Special Program, by China Association for Science and Technology
 
 Awards
 ======
