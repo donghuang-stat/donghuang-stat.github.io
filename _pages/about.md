@@ -10,6 +10,8 @@ redirect_from:
 I am a third-year Ph.D student at Department of Statistics and Data Science, Tsinghua University, very fortunate to be advised by Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/2411.htm).
 I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences, Tsinghua University. My research interests are in statistics, probability and theoretical computer science.
 
+[Curriculum Vitae (last updated: 2026-02)](/_pages/CV_2602.pdf)
+
 News
 ======
 * **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/abs/2601.13966).
