@@ -14,6 +14,7 @@ Here is my [CV](/_pages/CV_2602.pdf) (last updated: 2026-02).
 
 News
 ======
+* **February 2026**: Our paper "Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models" is now available on [arxiv](https://arxiv.org/abs/2602.08173).
 * **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/abs/2601.13966).
 * **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
