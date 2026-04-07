@@ -28,7 +28,7 @@ Selected Awards
 ======
 * **2026**: IMS Hannan Graduate Student Travel Award
 * **2025, 2024, 2022, 2020**: Comprehensive Scholarship of Tsinghua University
-* **2024**: Excellent Teaching Assistant of Tsinghua University
+* **2024**: Outstanding Teaching Assistant of Tsinghua University
 * **2023**: Outstanding Graduates of Tsinghua University
 * **2020**: First Prize in National College Student Mathematics Competition  
 
