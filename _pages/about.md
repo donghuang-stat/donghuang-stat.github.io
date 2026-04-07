@@ -14,11 +14,9 @@ Here is my [CV](/_pages/CV_2602.pdf) (last updated: 2026-02).
 
 News
 ======
-* **February 2026**: Our paper "Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models" is now available on [arxiv](https://arxiv.org/abs/2602.08173).
-* **January 2026**: Our paper "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling" is now available on [arxiv](https://arxiv.org/abs/2601.13966).
-* **October 2025**: Our paper "Testing Correlation in Graphs by Counting Bounded Degree Motifs" is now available on [arxiv](https://www.arxiv.org/abs/2510.25289).
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
-* **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025). [arxiv](https://arxiv.org/abs/2505.14138)
+* **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025).
+* **June 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by Conference on Learning Theory (COLT 2024).
 
 Education
 ======
