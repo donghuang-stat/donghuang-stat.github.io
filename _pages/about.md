@@ -14,6 +14,7 @@ Here is my [CV](/_pages/CV_2602.pdf) (last updated: 2026-02).
 
 News
 ======
+* **April 2026**: I received 2026 IMS Hannan Graduate Student Travel Award.
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
 * **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025).
 * **June 2024**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (short version) is accepted by Conference on Learning Theory (COLT 2024).
@@ -23,17 +24,13 @@ Education
 * **2023-now**: Ph.D in Statistics, Department of Statistics and Data Science, Tsinghua University
 * **2019-2023**: B.S. in Mathematics, Department of Mathetical Sciences, Tsinghua University
 
-Awards
+Selected Awards
 ======
-* **2020, 2022, 2024, 2025**: Comprehensive Scholarship of Tsinghua University
-* **2025**: Excellent Social Practice Scholarship of Tsinghua University
+* **2026**: IMS Hannan Graduate Student Travel Award
+* **2025, 2024, 2022, 2020**: Comprehensive Scholarship of Tsinghua University
 * **2024**: Excellent Teaching Assistant of Tsinghua University
 * **2023**: Outstanding Graduates of Tsinghua University
-* **2021**: Excellent Scholarship for Scientific Research and Innovation of Tsinghua University  
-* **2020**: Academic Excellence Scholarship of Tsinghua University
 * **2020**: First Prize in National College Student Mathematics Competition  
-* **2018**: First Prize in the National High School Mathematics Competition
-* **2018**: Gold Medal in the Southeastern China Mathematical Olympiad
 
 Teaching
 ======
