@@ -14,7 +14,7 @@ Here is my [CV](/_pages/CV_2602.pdf) (last updated: 2026-02).
 
 News
 ======
-* **May 2026**: Our paper "Sharp Statistical Limits and Algorithm for Attributed Graph Alignment" is accepted by the 43rd International Conference on Machine Learning (ICML 2026).
+* **May 2026**: Our paper "Attributed Network Alignment: Statistical Limits and Efficient Algorithm" is accepted by the 43rd International Conference on Machine Learning (ICML 2026).
 * **April 2026**: I received 2026 IMS Hannan Graduate Student Travel Award.
 * **October 2025**: Our paper "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs" (long version) is accepted by IEEE Transactions on Information Theory.
 * **May 2025**: Our paper "Sample Complexity of Correlation Detection in the Gaussian Wigner Model" is accepted by the 42nd International Conference on Machine Learning (ICML 2025).
