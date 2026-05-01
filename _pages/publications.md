@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 {% include base_path %}
-
+* **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Sharp Statistical Limits and Algorithm for Attributed Graph Alignment**, *the 43rd International Conference on Machine Learning (ICML)*, 2026. [arxiv](https://arxiv.org/abs/2604.04365)
 * **Dong Huang**, Pengkun Yang, (α-β), **Sample Complexity of Correlation Detection in the Gaussian Wigner Model**, *the 42nd International Conference on Machine Learning (ICML)*, 2025. [arxiv](https://arxiv.org/abs/2505.14138) [conference](https://proceedings.mlr.press/v267/huang25aq.html)
 * **Dong Huang**, Xianwen Song, Pengkun Yang, (α-β), **Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs**.
   * Short version: *the 37th Annual Conference on Learning Theory (COLT)*, 2024. [conference](https://proceedings.mlr.press/v247/huang24b.html)
@@ -20,4 +20,4 @@ Manuscripts
 * **Dong Huang**, Pengkun Yang, (α-β), **Testing Correlation in Graphs by Counting Bounded Degree Motifs**, *submitted*. [arxiv](https://www.arxiv.org/abs/2510.25289)
 * **Dong Huang**, Pengkun Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
 * Shuyang Gong, **Dong Huang**, Zhangsong Li, (α-β), **Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models**, *submitted*. [arxiv](https://arxiv.org/abs/2602.08173)
-* **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Sharp Statistical Limits and Algorithm for Attributed Graph Alignment**, *submitted*. [arxiv](https://arxiv.org/abs/2604.04365)
+
