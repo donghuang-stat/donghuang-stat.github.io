@@ -27,7 +27,7 @@ Education
 
 Selected Awards
 ======
-* **2026**: IMS Hannan Graduate Student Travel Award
+* **2026**: IMS Hannan Graduate Student Travel Award [link](https://imstat.org/2026/04/29/recipients-of-the-2026-ims-hannan-graduate-student-travel-awards-announced/)
 * **2025, 2024, 2022, 2020**: Comprehensive Scholarship of Tsinghua University
 * **2024**: Outstanding Teaching Assistant of Tsinghua University
 * **2023**: Outstanding Graduates of Tsinghua University
