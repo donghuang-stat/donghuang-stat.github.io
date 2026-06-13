@@ -20,4 +20,5 @@ Manuscripts
 * **Dong Huang**, Pengkun Yang, (α-β), **Testing Correlation in Graphs by Counting Bounded Degree Motifs**, *submitted*. [arxiv](https://www.arxiv.org/abs/2510.25289) [poster](/_pages/Bounded_degree_poster.pdf)
 * **Dong Huang**, Pengkun Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
 * Shuyang Gong, **Dong Huang**, Zhangsong Li, (α-β), **Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models**, *submitted*. [arxiv](https://arxiv.org/abs/2602.08173)
+* **Dong Huang**, Jianbo Sun, Pengkun Yang, (α-β), **Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs**, *submitted*.
 
