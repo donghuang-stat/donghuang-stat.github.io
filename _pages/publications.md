@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 {% include base_path %}
-* **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Attributed Network Alignment: Statistical Limits and Efficient Algorithm**, *the 43rd International Conference on Machine Learning (ICML)*, 2026. [arxiv](https://arxiv.org/abs/2604.04365)
+* **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Attributed Network Alignment: Statistical Limits and Efficient Algorithm**, *the 43rd International Conference on Machine Learning (ICML)*, 2026. [arxiv](https://arxiv.org/abs/2604.04365) [poster](/_pages/ICML2026poster.pdf)
 * **Dong Huang**, Pengkun Yang, (α-β), **Sample Complexity of Correlation Detection in the Gaussian Wigner Model**, *the 42nd International Conference on Machine Learning (ICML)*, 2025. [arxiv](https://arxiv.org/abs/2505.14138) [conference](https://proceedings.mlr.press/v267/huang25aq.html) [poster](/_pages/ICML2025_poster.pdf)
 * **Dong Huang**, Xianwen Song, Pengkun Yang, (α-β), **Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs**.
   * Short version: *the 37th Annual Conference on Learning Theory (COLT)*, 2024. [conference](https://proceedings.mlr.press/v247/huang24b.html)
