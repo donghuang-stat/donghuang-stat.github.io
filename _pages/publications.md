@@ -8,6 +8,8 @@ redirect_from:
 ---
 
 {% include base_path %}
+* **Dong Huang**, Jianbo Sun, Pengkun Yang, (α-β), **Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs**, to appear in *Statistical Learning and Data Science (SLADS)*. [arxiv](http://arxiv.org/abs/2606.17634) [poster](/_pages/2026_Peking_Tsinghua_Poster.pdf)
+  * Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum.
 * **Dong Huang**, Chenyang Tian, Pengkun Yang, (α-β), **Attributed Network Alignment: Statistical Limits and Efficient Algorithm**, *the 43rd International Conference on Machine Learning (ICML)*, 2026. [arxiv](https://arxiv.org/abs/2604.04365) [poster](/_pages/ICML2026poster.pdf)
 * **Dong Huang**, Pengkun Yang, (α-β), **Sample Complexity of Correlation Detection in the Gaussian Wigner Model**, *the 42nd International Conference on Machine Learning (ICML)*, 2025. [arxiv](https://arxiv.org/abs/2505.14138) [conference](https://proceedings.mlr.press/v267/huang25aq.html) [poster](/_pages/ICML2025_poster.pdf)
 * **Dong Huang**, Xianwen Song, Pengkun Yang, (α-β), **Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs**.
@@ -21,6 +23,5 @@ Manuscripts
 * **Dong Huang**, Pengkun Yang, (α-β), **Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling**, *submitted*. [arxiv](https://arxiv.org/abs/2601.13966)
   * Awarded 2026 IMS Hannan Graduate Student Travel Award.
 * Shuyang Gong, **Dong Huang**, Zhangsong Li, (α-β), **Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models**, *submitted*. [arxiv](https://arxiv.org/abs/2602.08173)
-* **Dong Huang**, Jianbo Sun, Pengkun Yang, (α-β), **Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs**, *submitted*. [arxiv](http://arxiv.org/abs/2606.17634) [poster](/_pages/2026_Peking_Tsinghua_Poster.pdf)
-  * Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum.
+
 
