@@ -7,13 +7,14 @@ redirect_from:
   - /about.html
 ---
 
-I am a third-year Ph.D student at Department of Statistics and Data Science, Tsinghua University, very fortunate to be advised by Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/2411.htm).
-I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences, Tsinghua University. My research interests are in statistics, probability and theoretical computer science.
+I am a fourth-year Ph.D student at Department of Statistics and Data Science, Tsinghua University, very fortunate to be advised by Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/2411.htm).
+I obtained my B.S. degree in Mathematics from Department of Mathetical Sciences, Tsinghua University. My research interests are in statistics, probability and theoretical computer science. 
 
 Here is my [CV](/_pages/CV_2602.pdf) (last updated: 2026-02).
 
 News
 ======
+* **July 2026**: I will be visiting Prof. [Shuangping Li](https://fifalsp.github.io/) in the Department of Statistics and Data Science at Yale University from 2026/8/1 to 2027/1/31.
 * **June 2026**: I received Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum for our paper "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs".
 * **May 2026**: Our paper "Attributed Network Alignment: Statistical Limits and Efficient Algorithm" is accepted by the 43rd International Conference on Machine Learning (ICML 2026).
 * **April 2026**: I received 2026 IMS Hannan Graduate Student Travel Award.
