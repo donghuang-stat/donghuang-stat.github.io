@@ -1,0 +1,325 @@
+{
+  "profile": {
+    "name": "Dong Huang",
+    "chinese_name": "黄栋",
+    "email": "hd23@mails.tsinghua.edu.cn",
+    "scholar": "https://scholar.google.com/citations?user=YX7RZ70AAAAJ",
+    "advisor_name": "Pengkun Yang",
+    "advisor_url": "https://www.stat.tsinghua.edu.cn/info/1023/2411.htm",
+    "bio_html": [
+      "I am a fourth-year Ph.D. student in the Department of Statistics and Data Science at Tsinghua University, very fortunate to be advised by Prof. <a href=\"https://www.stat.tsinghua.edu.cn/info/1023/2411.htm\">Pengkun Yang</a>.",
+      "I obtained my B.S. degree in Mathematics from the Department of Mathematical Sciences at Tsinghua University. My research interests are in statistics, probability and theoretical computer science.",
+      "I am visiting Prof. <a href=\"https://fifalsp.github.io/\">Shuangping Li</a> in the Department of Statistics and Data Science at Yale University from August 1, 2026 to January 31, 2027."
+    ],
+    "interests": [
+      "Statistics",
+      "Probability",
+      "Theoretical computer science"
+    ]
+  },
+  "selected_ids": [
+    "2602.08173",
+    "2601.13966",
+    "2510.25289",
+    "2406.05428"
+  ],
+  "papers": [
+    {
+      "id": "2606.17634",
+      "title": "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs",
+      "authors": [
+        "Dong Huang",
+        "Jianbo Sun",
+        "Pengkun Yang"
+      ],
+      "year": 2026,
+      "group": "publications",
+      "venue": "Statistical Learning and Data Science (SLADS), to appear",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2606.17634"
+        },
+        {
+          "label": "Poster",
+          "url": "https://donghuang-stat.github.io/_pages/2026_Peking_Tsinghua_Poster.pdf"
+        }
+      ],
+      "note": "Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum.",
+      "alphabetical": true
+    },
+    {
+      "id": "2604.04365",
+      "title": "Attributed Network Alignment: Statistical Limits and Efficient Algorithm",
+      "authors": [
+        "Dong Huang",
+        "Chenyang Tian",
+        "Pengkun Yang"
+      ],
+      "year": 2026,
+      "group": "publications",
+      "venue": "The 43rd International Conference on Machine Learning (ICML), 2026",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2604.04365"
+        },
+        {
+          "label": "Poster",
+          "url": "https://donghuang-stat.github.io/_pages/ICML2026poster.pdf"
+        }
+      ],
+      "alphabetical": true
+    },
+    {
+      "id": "2505.14138",
+      "title": "Sample Complexity of Correlation Detection in the Gaussian Wigner Model",
+      "authors": [
+        "Dong Huang",
+        "Pengkun Yang"
+      ],
+      "year": 2025,
+      "group": "publications",
+      "venue": "The 42nd International Conference on Machine Learning (ICML), 2025",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2505.14138"
+        },
+        {
+          "label": "Conference",
+          "url": "https://proceedings.mlr.press/v267/huang25aq.html"
+        },
+        {
+          "label": "Poster",
+          "url": "https://donghuang-stat.github.io/_pages/ICML2025_poster.pdf"
+        }
+      ],
+      "alphabetical": true
+    },
+    {
+      "id": "2406.05428",
+      "title": "Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs",
+      "authors": [
+        "Dong Huang",
+        "Xianwen Song",
+        "Pengkun Yang"
+      ],
+      "year": 2025,
+      "group": "publications",
+      "venue": "IEEE Transactions on Information Theory, 2025 (long version); COLT, 2024 (short version)",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2406.05428"
+        },
+        {
+          "label": "Journal",
+          "url": "https://ieeexplore.ieee.org/document/11197490"
+        },
+        {
+          "label": "COLT",
+          "url": "https://proceedings.mlr.press/v247/huang24b.html"
+        },
+        {
+          "label": "Poster",
+          "url": "https://donghuang-stat.github.io/_pages/2024_PKU_THU_poster.pdf"
+        }
+      ],
+      "alphabetical": true
+    },
+    {
+      "id": "neurocomputing-2023",
+      "title": "Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network",
+      "authors": [
+        "Yucong Lin",
+        "Silu Li",
+        "Jiaxing Xu",
+        "Jiawei Xu",
+        "Dong Huang",
+        "Wendi Zheng",
+        "Yuan Cao",
+        "Junwei Lu"
+      ],
+      "year": 2023,
+      "group": "publications",
+      "venue": "Neurocomputing, 2023",
+      "links": [
+        {
+          "label": "Journal",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0925231223002047"
+        }
+      ],
+      "alphabetical": false
+    },
+    {
+      "id": "2510.25289",
+      "title": "Testing Correlation in Graphs by Counting Bounded Degree Motifs",
+      "authors": [
+        "Dong Huang",
+        "Pengkun Yang"
+      ],
+      "year": 2025,
+      "group": "manuscripts",
+      "venue": "Submitted",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2510.25289"
+        },
+        {
+          "label": "Poster",
+          "url": "https://donghuang-stat.github.io/_pages/Bounded_degree_poster.pdf"
+        }
+      ],
+      "alphabetical": true
+    },
+    {
+      "id": "2601.13966",
+      "title": "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling",
+      "authors": [
+        "Dong Huang",
+        "Pengkun Yang"
+      ],
+      "year": 2026,
+      "group": "manuscripts",
+      "venue": "Submitted",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2601.13966"
+        }
+      ],
+      "note": "Awarded 2026 IMS Hannan Graduate Student Travel Award.",
+      "alphabetical": true
+    },
+    {
+      "id": "2602.08173",
+      "title": "Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models",
+      "authors": [
+        "Shuyang Gong",
+        "Dong Huang",
+        "Zhangsong Li"
+      ],
+      "year": 2026,
+      "group": "manuscripts",
+      "venue": "Submitted",
+      "links": [
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2602.08173"
+        }
+      ],
+      "alphabetical": true
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-07",
+      "label": "July 2026",
+      "html": "I will be visiting Prof. <a href=\"https://fifalsp.github.io/\">Shuangping Li</a> in the Department of Statistics and Data Science at Yale University from 2026/8/1 to 2027/1/31."
+    },
+    {
+      "date": "2026-06",
+      "label": "June 2026",
+      "html": "I received Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum for our paper \"Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs\"."
+    },
+    {
+      "date": "2026-05",
+      "label": "May 2026",
+      "html": "Our paper \"Attributed Network Alignment: Statistical Limits and Efficient Algorithm\" is accepted by the 43rd International Conference on Machine Learning (ICML 2026)."
+    },
+    {
+      "date": "2026-04",
+      "label": "April 2026",
+      "html": "I received 2026 IMS Hannan Graduate Student Travel Award."
+    },
+    {
+      "date": "2025-10",
+      "label": "October 2025",
+      "html": "Our paper \"Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs\" (long version) is accepted by IEEE Transactions on Information Theory."
+    },
+    {
+      "date": "2025-05",
+      "label": "May 2025",
+      "html": "Our paper \"Sample Complexity of Correlation Detection in the Gaussian Wigner Model\" is accepted by the 42nd International Conference on Machine Learning (ICML 2025)."
+    },
+    {
+      "date": "2024-06",
+      "label": "June 2024",
+      "html": "Our paper \"Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs\" (short version) is accepted by Conference on Learning Theory (COLT 2024)."
+    }
+  ],
+  "education": [
+    {
+      "dates": "2026.08 – 2027.01",
+      "title": "Visiting Ph.D. Student",
+      "institution": "Yale University",
+      "detail": "Department of Statistics and Data Science · Host: Prof. Shuangping Li",
+      "url": "https://fifalsp.github.io/"
+    },
+    {
+      "dates": "2023 – present",
+      "title": "Ph.D. in Statistics",
+      "institution": "Tsinghua University",
+      "detail": "Department of Statistics and Data Science · Advisor: Prof. Pengkun Yang",
+      "url": "https://www.stat.tsinghua.edu.cn/info/1023/2411.htm"
+    },
+    {
+      "dates": "2019 – 2023",
+      "title": "B.S. in Mathematics",
+      "institution": "Tsinghua University",
+      "detail": "Department of Mathematical Sciences"
+    }
+  ],
+  "awards": [
+    {
+      "date": "2026–2027",
+      "text": "Young Elite Scientists Sponsorship Program - Doctoral Student Special Program, by China Association for Science and Technology"
+    },
+    {
+      "date": "2026",
+      "text": "IMS Hannan Graduate Student Travel Award",
+      "url": "https://imstat.org/2026/04/29/recipients-of-the-2026-ims-hannan-graduate-student-travel-awards-announced/"
+    },
+    {
+      "date": "2025, 2024, 2022, 2020",
+      "text": "Comprehensive Scholarship of Tsinghua University"
+    },
+    {
+      "date": "2024",
+      "text": "Outstanding Teaching Assistant of Tsinghua University"
+    },
+    {
+      "date": "2023",
+      "text": "Outstanding Graduates of Tsinghua University"
+    },
+    {
+      "date": "2020",
+      "text": "First Prize in National College Student Mathematics Competition"
+    }
+  ],
+  "sources": {
+    "about_url": "https://donghuang-stat.github.io/",
+    "publications_url": "https://donghuang-stat.github.io/publications/",
+    "github_repo": "https://github.com/donghuang-stat/donghuang-stat.github.io",
+    "retrieved_date": "2026-09-14",
+    "branch": "master",
+    "about_source_url": "https://github.com/donghuang-stat/donghuang-stat.github.io/blob/master/_pages/about.md",
+    "about_sha": "3b70b16b2b0203315370485f44fb09e4946bc31e",
+    "publications_source_url": "https://github.com/donghuang-stat/donghuang-stat.github.io/blob/master/_pages/publications.md",
+    "publications_sha": "82070c116a4b700cf3f4e1cd76cb046ff9a4a33a",
+    "config_source_url": "https://github.com/donghuang-stat/donghuang-stat.github.io/blob/master/_config.yml",
+    "config_sha": "0d6397ad3752fd0abb147a55248b3f079cb28213",
+    "cv_url": "https://donghuang-stat.github.io/_pages/CV_2608.pdf",
+    "cv_updated": "2026-08",
+    "notes": [
+      "News text is preserved verbatim from the official about page, with Markdown links converted to HTML.",
+      "Biography retains first-person phrasing, with grammar, Ph.D. punctuation, and date formatting adjusted; the current Yale visit uses I am visiting as requested.",
+      "The Yale visit is included as an education entry at the user's request, using the exact period and host in the official biography.",
+      "The requested bounded-degree manuscript is arXiv:2510.25289 in the official publication list.",
+      "Publication status follows the official publication list without importing newer acceptance claims from elsewhere.",
+      "Teaching and reviewer/service sections are excluded from the homepage. Selected awards follow the official homepage, including the named teaching-assistant award. CV links open the original PDF directly."
+    ]
+  }
+}

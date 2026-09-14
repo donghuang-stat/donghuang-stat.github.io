@@ -1,0 +1,116 @@
+{
+  "pdf": {
+    "path": "assets/CV_2608.pdf",
+    "updated": "August 2026",
+    "source_url": "https://donghuang-stat.github.io/_pages/CV_2608.pdf",
+    "git_blob_sha": "67acfa68d0a2da289863b28e94cfb7d8d7e7998f",
+    "pages": 2
+  },
+  "teaching": [
+    {
+      "dates": "Fall 2025",
+      "title": "Mathematical Analysis & Advanced Linear Algebra",
+      "role": "Academic Advisor",
+      "detail": "Undergraduate, Department of Statistics and Data Science, Tsinghua University."
+    },
+    {
+      "dates": "Spring 2024 and Spring 2025",
+      "title": "Multivariate Statistical Analysis",
+      "role": "Teaching Assistant",
+      "detail": "Tsinghua University."
+    },
+    {
+      "dates": "Fall 2023 and Fall 2024",
+      "title": "Elementary Probability Theory",
+      "role": "Teaching Assistant",
+      "detail": "Tsinghua University. Awarded Outstanding Teaching Assistant in Fall 2023."
+    }
+  ],
+  "services": [
+    "Reviewer: NeurIPS, ICML, TMLR, EJS"
+  ],
+  "research_interests": "My research interests are in statistics, probability and theoretical computer science.",
+  "additional_manuscripts": [
+    {
+      "title": "Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts",
+      "authors": ["Xinyuan Fan", "Dong Huang", "Tianpai Luo", "Pengkun Yang", "Weichi Wu"],
+      "status": "Submitted",
+      "alphabetical": false,
+      "cofirst": ["Xinyuan Fan", "Dong Huang", "Tianpai Luo"]
+    },
+    {
+      "title": "Alignments in the Partially Correlated Graphs of Unknown Size",
+      "authors": ["Dong Huang", "Xianwen Song", "Pengkun Yang"],
+      "status": "Working paper",
+      "alphabetical": true,
+      "cofirst": []
+    },
+    {
+      "title": "Fundamental Limits of Differentially Private Graphon Estimation",
+      "authors": ["Dong Huang", "Yicheng Li"],
+      "status": "Working paper",
+      "alphabetical": true,
+      "cofirst": []
+    },
+    {
+      "title": "CLASP-ST: Cluster-Anchored Spectral Alignment for Spatial Transcriptomics",
+      "authors": ["Yijie Wang", "Wenjie Zou", "Dong Huang", "Hongyi Sun", "Pengkun Yang"],
+      "status": "Working paper",
+      "alphabetical": false,
+      "cofirst": ["Yijie Wang", "Wenjie Zou"]
+    }
+  ],
+  "skills": ["LaTeX", "Python", "R", "Mathematica", "Matlab"],
+  "talks": [
+    {
+      "date": "July 2026",
+      "title": "The 4th Joint Conference on Statistics and Data Science in China",
+      "location": "Guiyang, China"
+    },
+    {
+      "date": "November 2025",
+      "title": "Tsinghua Statistics Colloquium",
+      "location": "Beijing, China"
+    },
+    {
+      "date": "June 2025",
+      "title": "Beijing-Tianjin-Hebei Youth Probability Statistics Academic Seminar",
+      "location": "Beijing, China"
+    },
+    {
+      "date": "July 2024",
+      "title": "The 2nd Joint Conference on Statistics and Data Science in China",
+      "location": "Kunming, China"
+    },
+    {
+      "date": "July 2024",
+      "title": "International Conference on Frontiers of Data Science",
+      "location": "Hangzhou, China"
+    },
+    {
+      "date": "November 2023",
+      "title": "Tsinghua Statistics Colloquium",
+      "location": "Beijing, China"
+    },
+    {
+      "date": "October 2023",
+      "title": "National Conference of Young Scholars in Probability and Statistics",
+      "location": "Xuzhou, China"
+    }
+  ],
+  "additional_awards": [
+    {
+      "date": "2026",
+      "text": "Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum"
+    }
+  ],
+  "notes": [
+    "The local PDF is an unmodified copy of the public repository's _pages/CV_2608.pdf: 33,121 bytes, two pages, Git blob SHA-1 67acfa68d0a2da289863b28e94cfb7d8d7e7998f.",
+    "The August 2026 PDF does not yet list the Yale visit. The website's _pages/about.md confirms a visit to Prof. Shuangping Li at Yale University's Department of Statistics and Data Science from August 1, 2026 to January 31, 2027; the local HTML education section may include it as requested.",
+    "Teaching and reviewer service above follow the public _pages/about.md source, Git blob SHA-1 3b70b16b2b0203315370485f44fb09e4946bc31e.",
+    "The PDF lists the Tsinghua Ph.D. period as September 2023–June 2028 and the B.S. period as September 2019–June 2023. The public homepage uses 2023–now and 2019–2023.",
+    "The public homepage spells the 2024 honor Outstanding Teaching Assistant; the PDF calls it Excellent Teaching Assistant. The HTML website follows the homepage wording.",
+    "The PDF lists Testing Correlation in Graphs by Counting Bounded Degree Motifs, Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling, Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models, and Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts as submitted.",
+    "The PDF lists Alignments in the Partially Correlated Graphs of Unknown Size, Fundamental Limits of Differentially Private Graphon Estimation, and CLASP-ST: Cluster-Anchored Spectral Alignment for Spatial Transcriptomics as working papers."
+  ]
+}
