@@ -176,7 +176,7 @@
     },
     {
       "id": "2601.13966",
-      "title": "Information-Theoretic and Computational Limits of Correlation Detection under Graph Sampling",
+      "title": "Sample Complexity of Correlation Detection in Erdős-Rényi graphs",
       "authors": [
         "Dong Huang",
         "Pengkun Yang"
@@ -314,6 +314,7 @@
     "cv_url": "https://donghuang-stat.github.io/_pages/CV_2608.pdf",
     "cv_updated": "2026-08",
     "notes": [
+      "The title of arXiv:2601.13966 was updated from the official v2 page (https://arxiv.org/abs/2601.13966v2), revised September 1, 2026; checked September 14, 2026.",
       "News text is preserved verbatim from the official about page, with Markdown links converted to HTML.",
       "Biography retains first-person phrasing, with grammar, Ph.D. punctuation, and date formatting adjusted; the current Yale visit uses I am visiting as requested.",
       "The Yale visit is included as an education entry at the user's request, using the exact period and host in the official biography.",

@@ -19,6 +19,14 @@ Open <http://127.0.0.1:4173/> to preview. Edit `assets/style.css` for layout and
 
 ## Publish
 
+Build, validate, commit and push local edits in one step:
+
+```sh
+python3 publish.py -m "Update homepage content"
+```
+
+Use `python3 publish.py --check` to rebuild and check links without committing or pushing. The publishing script stages only the listed website files and stops if the remote branch contains newer commits that have not been integrated locally.
+
 Commit source and generated HTML changes to `homepage-redesign`. GitHub Pages publishes this branch from `/(root)` using **Deploy from a branch**. The `.nojekyll` file serves the site as static HTML.
 
 - Home: `index.html`
