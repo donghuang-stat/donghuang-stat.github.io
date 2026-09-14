@@ -1,18 +1,18 @@
 :root {
   color-scheme: light dark;
   --paper: #f8f6ef;
-  --ink: #292f29;
-  --muted: #62695d;
-  --accent: #126c4b;
-  --line: #d9dcd0;
-  --soft: #efeee5;
+  --ink: #2a3037;
+  --muted: #5f6871;
+  --accent: #215e9b;
+  --line: #d9dde0;
+  --soft: #edeee9;
   --serif: Georgia, 'Times New Roman', 'Songti SC', serif;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) { --paper:#242621; --ink:#eae9e0; --muted:#b3bbab; --accent:#85e6a8; --line:#485042; --soft:#2c3028; }
+  :root:not([data-theme='light']) { --paper:#24272b; --ink:#eaeef2; --muted:#b6c0ca; --accent:#91c8ff; --line:#46505a; --soft:#2b323a; }
 }
-:root[data-theme='dark'] { color-scheme:dark; --paper:#242621; --ink:#eae9e0; --muted:#b3bbab; --accent:#85e6a8; --line:#485042; --soft:#2c3028; }
+:root[data-theme='dark'] { color-scheme:dark; --paper:#24272b; --ink:#eaeef2; --muted:#b6c0ca; --accent:#91c8ff; --line:#46505a; --soft:#2b323a; }
 :root[data-theme='light'] { color-scheme:light; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:24px; }
