@@ -8,6 +8,17 @@
 | 全部论文、作者、发表信息、链接、分组和顺序 | [research.md](research.md) |
 | 全部新闻；首页自动读取前几条 | [news.md](news.md) |
 
+## 直接在 GitHub 更新
+
+网页编辑是最方便的更新方式，不需要在本地运行 Python：
+
+1. 打开仓库的 [homepage-redesign 分支](https://github.com/donghuang-stat/donghuang-stat.github.io/tree/homepage-redesign)。
+2. 打开 `home.md`、`research.md` 或 `news.md`，点击铅笔按钮修改。
+3. 点击 **Commit changes**，直接提交到 `homepage-redesign`；也可以创建 PR，合并到这个分支后再发布。
+4. 在 [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) 等待构建和部署任务变绿，再刷新官网。
+
+提交 Markdown 后，GitHub Actions 会自动生成 HTML、检查链接并部署。不要手动修改生成的 HTML。如果 Markdown 格式或链接有误，构建会失败并保留上次成功发布的网站；打开失败任务的日志即可查看需要修改的位置。
+
 ## 编辑方式
 
 直接修改 Markdown 中的文字。`#` 是页面标题，`##` 是板块，`###` 是论文、教育经历或奖项条目；正文支持 `[链接文字](https://example.com)`、`**加粗**`、`*斜体*` 和列表。请保留现有板块名称及论文字段名称的英文拼写。新增内容时复制同类条目最方便。
@@ -75,7 +86,13 @@ Department name · Host: Prof. [Name](https://example.com)
 
 ## 本地预览和发布
 
-需要 Python 3.9 或更新版本及 Git。在这个仓库目录打开终端：
+也可以在本地编辑，需要 Python 3.9 或更新版本及 Git。混合使用网页和本地编辑时，每次开始本地修改前，先保存并处理已有修改，确认工作区干净，再在仓库目录同步远端：
+
+```sh
+git pull --ff-only origin homepage-redesign
+```
+
+启动本地预览：
 
 ```sh
 python3 serve.py
@@ -90,9 +107,9 @@ python3 publish.py --check
 python3 publish.py -m "Update homepage content"
 ```
 
-`--check` 只重建和检查内容、链接及资源。发布命令会重建、检查、提交并推送；远端有尚未合入的更新时会停止，不会强制覆盖。推送成功后，在 [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) 等待 Pages 部署成功。
+`--check` 只重建和检查内容、链接及资源。发布命令会重建、检查、提交并推送；远端有尚未合入的更新时会停止，不会强制覆盖。推送后由同一个 GitHub Actions 工作流自动构建和部署，等待任务成功即可。
 
-GitHub Pages 使用 `homepage-redesign` 分支的 `/(root)` 目录；`master` 保留旧站备份。当前电脑直接在 `page/` 中更新即可，换电脑后需配置 GitHub 写入权限。
+GitHub Pages 的发布来源是 **GitHub Actions**，仅发布 `homepage-redesign` 分支；`master` 保留旧站备份。当前电脑直接在 `page/` 中更新即可，换电脑后需配置 GitHub 写入权限。
 
 ## 照片、PDF 和模板
 
@@ -100,4 +117,4 @@ CV 是独立 PDF，网页修改不会改变 PDF 内容。替换 `assets/CV_2608.
 
 `assets/`、`_pages/` 中的 PDF、常见图片、CSS、JavaScript、图标和字体资源会自动纳入发布。`_pages/` 保留正在使用的五份海报，以维持原链接；旧网址 `/publications/`、`/news/`、`/cv/` 保留跳转。
 
-生成的 HTML 不需要手动编辑。`build.py`、`content.py`、`assets/style.css` 和 `assets/site.js` 是固定模板、解析与样式代码，只有调整设计或功能时才需要修改。旧版 Markdown、历史资料和上传目录已归档到 `.local/archive/`，只在本地保留，不会发布。
+生成的 HTML 不需要手动编辑。`build.py`、`content.py`、`assets/style.css` 和 `assets/site.js` 是固定模板、解析与样式代码；[.github/workflows/pages.yml](.github/workflows/pages.yml) 负责 GitHub 上的自动构建和部署。只有调整设计或功能时才需要修改这些文件。旧版 Markdown、历史资料和上传目录已归档到 `.local/archive/`，只在本地保留，不会发布。

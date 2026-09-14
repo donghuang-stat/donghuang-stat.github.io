@@ -6,6 +6,8 @@ from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
 import subprocess
 import sys
+import shutil
+import tempfile
 from urllib.parse import unquote, urlsplit
 
 
@@ -19,7 +21,7 @@ SITE_FILES = (
     "home.md", "research.md", "news.md",
     ".nojekyll", "build.py", "content.py", "serve.py",
 )
-PUBLISH_FILES = SITE_FILES + ("publish.py",)
+PUBLISH_FILES = SITE_FILES + ("publish.py", ".github/workflows/pages.yml")
 OPTIONAL_FILES = ("README.md", ".gitignore")
 LEGACY_FILES = ("data/content.json", "data/cv.json",
                 "sources/about.md", "sources/publications.md", "sources/cv-2608.txt")
@@ -128,12 +130,13 @@ class Page(HTMLParser):
                 self.references.append(content.split("=", 1)[1].strip().strip("\"'"))
 
 
-def validate_site(root=ROOT):
+def validate_site(root=ROOT, artifact=False):
     root = root.resolve()
     # Check the exact filesystem discovery used by publishing, without reading Git.
     publishable = set(publish_paths(root, tracked=[]))
     pages = {}
-    for name in SITE_FILES:
+    required = tuple(name for name in SITE_FILES if name.endswith('.html')) + ('.nojekyll',) if artifact else SITE_FILES
+    for name in required:
         path = root / name
         if not path.is_file():
             raise PublishError(f"Required website file is missing: {name}")
@@ -180,6 +183,39 @@ def validate_site(root=ROOT):
     print(f"Checked {len(pages)} HTML pages: local and same-site links, anchors, assets, and PDF links are valid.")
 
 
+def package_site(destination, root=ROOT):
+    """Package only generated pages and public assets for GitHub Pages."""
+    root = root.resolve()
+    destination = Path(destination)
+    if not destination.is_absolute():
+        destination = root / destination
+    if destination.is_symlink() or any(parent.is_symlink() for parent in destination.parents):
+        raise PublishError('The site output directory must not be a symlink.')
+    destination = destination.resolve()
+    if destination == root or root.is_relative_to(destination):
+        raise PublishError('Choose a separate output directory, e.g. --site-dir _site.')
+    if destination.is_relative_to(root) and destination.relative_to(root).parts[0] not in {'_site', '.local'}:
+        raise PublishError('Inside this repository, use _site/ or .local/ for build output, not a source or asset folder.')
+    if destination.exists() and (not destination.is_dir() or any(destination.iterdir())):
+        raise PublishError(f'The site output directory must be new or empty: {destination}')
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    paths = [name for name in publish_paths(root, tracked=[])
+             if name.endswith('.html') or name == '.nojekyll'
+             or PurePosixPath(name).parts[0] in {'assets', '_pages'}]
+    with tempfile.TemporaryDirectory(prefix='page-artifact-', dir=destination.parent) as temporary:
+        staging = Path(temporary) / 'site'
+        staging.mkdir()
+        for name in paths:
+            target = staging / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(root / name, target)
+        validate_site(staging, artifact=True)
+        if destination.exists():
+            destination.rmdir()  # Only an empty directory is accepted above.
+        staging.replace(destination)
+    print(f'Packaged {len(paths)} public website files into {destination}.')
+
+
 def verify_staging():
     staged = git("diff", "--cached", "--name-only", "--no-renames", "-z", capture=True).split("\0")
     unrelated = sorted(name for name in staged if name and not owned_path(name))
@@ -205,15 +241,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("-m", "--message", default="Update personal homepage", help="Git commit message")
     parser.add_argument("--check", action="store_true", help="Build from Markdown and validate locally; do not fetch, stage, commit, or push")
+    parser.add_argument("--site-dir", metavar="DIR", help="With --check, package generated pages/assets in a new or empty directory for GitHub Pages")
     args = parser.parse_args()
     if not args.message.strip():
         raise PublishError("The commit message cannot be empty.")
+    if args.site_dir and not args.check:
+        raise PublishError('--site-dir requires --check; packaging never commits or pushes.')
 
     if not args.check:
         verify_checkout()
     run(sys.executable, "build.py")
     validate_site()
     if args.check:
+        if args.site_dir:
+            package_site(args.site_dir)
         print("Local checks passed. Nothing was committed or pushed.")
         return
 
