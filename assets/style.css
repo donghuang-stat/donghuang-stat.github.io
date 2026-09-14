@@ -35,7 +35,7 @@ h1,h2,h3 { font-weight:400; }
 .hero { display:grid; grid-template-columns:minmax(0, 1fr) 225px; gap:65px; align-items:center; padding:48px 0 43px; }
 .eyebrow { color:var(--muted); font:11px/1.7 var(--sans); letter-spacing:.15em; text-transform:uppercase; margin-bottom:16px; }
 .hero h1 { font:400 clamp(42px,5vw,57px)/1.13 var(--serif); letter-spacing:-.045em; margin-bottom:13px; }
-.chinese-name { display:inline-block; font:25px/1.5 'Songti SC','STSong',serif; letter-spacing:.1em; margin-left:16px; color:var(--accent); vertical-align:middle; }
+.chinese-name { display:inline-block; font:25px/1.5 'Songti SC','STSong',serif; letter-spacing:.1em; margin-left:16px; color:var(--ink); vertical-align:middle; }
 .role { font:13px/1.8 var(--sans); color:var(--muted); margin-bottom:24px; }
 .bio { max-width:620px; font:16px/1.85 var(--serif); }
 .bio p+p { margin-top:12px; }
