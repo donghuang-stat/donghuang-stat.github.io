@@ -12,16 +12,20 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent
 BRANCH = "homepage-redesign"
 REPOSITORY = "donghuang-stat/donghuang-stat.github.io"
+SITE_HOST = "donghuang-stat.github.io"
 SITE_FILES = (
     "index.html", "research.html", "news.html",
     "publications/index.html", "news/index.html", "cv/index.html",
     "assets/style.css", "assets/site.js", "assets/portrait.jpg", "assets/CV_2608.pdf",
+    "_pages/2024_PKU_THU_poster.pdf", "_pages/2026_Peking_Tsinghua_Poster.pdf",
+    "_pages/Bounded_degree_poster.pdf", "_pages/ICML2025_poster.pdf",
+    "_pages/ICML2026poster.pdf",
     "data/content.json", "data/cv.json",
     "sources/about.md", "sources/publications.md", "sources/cv-2608.txt",
     ".nojekyll", "build.py", "serve.py",
 )
 PUBLISH_FILES = SITE_FILES + ("publish.py",)
-OPTIONAL_FILES = ("README-new-site.md", ".gitignore")
+OPTIONAL_FILES = ("README.md", ".gitignore")
 
 
 class PublishError(Exception):
@@ -87,13 +91,17 @@ def validate_site(root=ROOT):
     for path, page in pages.items():
         for reference in page.references:
             url = urlsplit(reference)
+            same_site = url.hostname == SITE_HOST and url.scheme in ("", "http", "https")
+            if (url.scheme or url.netloc) and not same_site:
+                continue
             if unquote(url.path).rstrip("/").split("/")[-1] == "cv.html":
                 raise PublishError(f"Obsolete CV page link in {path.name}: {reference}")
-            if url.scheme or url.netloc:
-                continue
             local_path = unquote(url.path)
-            target = ((root / local_path.lstrip("/")) if local_path.startswith("/")
-                      else path.parent / local_path) if local_path else path
+            if same_site:
+                target = root / local_path.lstrip("/")
+            else:
+                target = ((root / local_path.lstrip("/")) if local_path.startswith("/")
+                          else path.parent / local_path) if local_path else path
             target = target.resolve()
             if not target.is_relative_to(root.resolve()):
                 raise PublishError(f"Link leaves the website folder: {reference}")
@@ -109,7 +117,7 @@ def validate_site(root=ROOT):
                     target_page = pages[target]
                 if unquote(url.fragment) not in target_page.ids:
                     raise PublishError(f"Missing anchor in {path.name}: {reference}")
-    print(f"Checked {len(pages)} HTML pages: local links, anchors, assets, and CV links are valid.")
+    print(f"Checked {len(pages)} HTML pages: local and same-site links, anchors, assets, and PDF links are valid.")
 
 
 def verify_staging():

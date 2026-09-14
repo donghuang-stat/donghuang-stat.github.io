@@ -1,96 +1,76 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Dong Huang's personal homepage
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Source for [donghuang-stat.github.io](https://donghuang-stat.github.io/), with Home, Research, News, and a direct CV PDF link. The site uses static HTML, CSS, JavaScript, and a Python standard-library generator. Python 3.9 or newer is sufficient; no package installation is required.
 
-# Getting Started
+## Preview locally
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+Run these commands from this repository's root directory:
 
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and open `.gitignore` then add `vendor` inside it.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
+```sh
+python3 publish.py --check
+python3 serve.py
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/). Use `python3 serve.py --port 4174` if port 4173 is already in use. Press Control-C to stop the server.
 
-### Using the DevContainer in VS Code
+`--check` rebuilds the HTML and validates required files, local links, links to this site's domain, and HTML anchors. It does not fetch, commit, or push. After editing content, rerun it and refresh the preview.
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development coontainer configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+## Update content
 
-# Maintenance
+| Change | Edit |
+| --- | --- |
+| Biography, contact details, papers, selected research, news, education, awards | `data/content.json` |
+| CV PDF path and metadata; research interests used on Research | `data/cv.json` |
+| Downloadable CV | `assets/CV_2608.pdf` |
+| Home photograph | `assets/portrait.jpg` |
+| Page structure and generated navigation | `build.py` |
+| Typography, spacing, responsive layout, colors | `assets/style.css` |
+| Theme selection behavior | `assets/site.js` |
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+Edit the data files instead of generated `index.html`, `research.html`, or `news.html`; rebuilding replaces those HTML files. Paper records are shared between Home and Research, and `selected_ids` controls the selection and order on Home. News entries retain the author's original first-person wording.
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+The CV PDF is an independent document: changing the website data does not modify its contents. To update it without changing links, replace `assets/CV_2608.pdf` and update its metadata in `data/cv.json`. If you choose a new filename, also update the PDF entry in `SITE_FILES` in `publish.py`.
 
-## Bugfixes and enhancements
+The `sources/` directory retains the original public biography, publication list, and extracted CV text for reference. These are historical snapshots, not the current content source for the generated pages.
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+## Publish an update
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+The publishing branch is **`homepage-redesign`**. GitHub Pages publishes its **`/(root)`** directory. The `master` branch retains the old website as a backup.
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+After checking the local preview, run:
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+```sh
+python3 publish.py -m "Update research and news"
+```
+
+The script checks the repository and branch, rebuilds and validates the site, fetches the publishing branch, commits changed website files, and pushes to `origin/homepage-redesign`. It requires Git and working GitHub write access. If the remote contains commits missing locally, or unrelated changes are already staged, it stops with an explanation; it never force-pushes.
+
+After a successful push, check [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) for the Pages deployment, then refresh the [live website](https://donghuang-stat.github.io/). A push finishes before the website deployment does.
+
+For a fresh checkout on another computer:
+
+```sh
+git clone --branch homepage-redesign https://github.com/donghuang-stat/donghuang-stat.github.io.git
+cd donghuang-stat.github.io
+python3 publish.py --check
+```
+
+Configure GitHub write access on that computer before publishing. The publishing script accepts the repository's HTTPS or SSH origin URL.
+
+## Files kept for existing links
+
+The original Jekyll template, example content, dependencies, and unused media have been removed. `.nojekyll` tells GitHub Pages to serve the generated static files directly.
+
+Five research posters remain at their original paths because the current site links to them:
+
+```text
+_pages/2024_PKU_THU_poster.pdf
+_pages/2026_Peking_Tsinghua_Poster.pdf
+_pages/Bounded_degree_poster.pdf
+_pages/ICML2025_poster.pdf
+_pages/ICML2026poster.pdf
+```
+
+Small generated redirects preserve `/publications/`, `/news/`, and `/cv/`. The CV redirect opens the PDF; there is no separate CV content page. When adding a new local asset or PDF, add its path to `SITE_FILES` in `publish.py` so that validation and publishing include it.
+
+To restore the old site, select `master` and `/(root)` in the repository's [Pages settings](https://github.com/donghuang-stat/donghuang-stat.github.io/settings/pages). Keep the old branch unchanged if this rollback option is needed.
