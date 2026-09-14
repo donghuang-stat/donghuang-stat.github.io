@@ -3,7 +3,7 @@
 
 import argparse
 from html.parser import HTMLParser
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
@@ -16,16 +16,17 @@ SITE_HOST = "donghuang-stat.github.io"
 SITE_FILES = (
     "index.html", "research.html", "news.html",
     "publications/index.html", "news/index.html", "cv/index.html",
-    "assets/style.css", "assets/site.js", "assets/portrait.jpg", "assets/CV_2608.pdf",
-    "_pages/2024_PKU_THU_poster.pdf", "_pages/2026_Peking_Tsinghua_Poster.pdf",
-    "_pages/Bounded_degree_poster.pdf", "_pages/ICML2025_poster.pdf",
-    "_pages/ICML2026poster.pdf",
-    "data/content.json", "data/cv.json",
+    "content/profile.md", "content/education.md", "content/awards.md",
+    "content/news.md", "content/recent-news.md", "content/selected-research.md",
+    "content/research.md",
     "sources/about.md", "sources/publications.md", "sources/cv-2608.txt",
-    ".nojekyll", "build.py", "serve.py",
+    ".nojekyll", "build.py", "content.py", "serve.py",
 )
 PUBLISH_FILES = SITE_FILES + ("publish.py",)
 OPTIONAL_FILES = ("README.md", ".gitignore")
+LEGACY_FILES = ("data/content.json", "data/cv.json")
+ASSET_TYPES = {".pdf", ".jpg", ".jpeg", ".png", ".webp", ".svg", ".gif",
+               ".css", ".js", ".ico", ".woff", ".woff2"}
 
 
 class PublishError(Exception):
@@ -37,7 +38,8 @@ def run(*args, capture=False):
     if result.returncode:
         detail = (result.stderr or "").strip() if capture else "See the command output above."
         raise PublishError(f"{args[0]} failed: {detail}")
-    return result.stdout.strip() if capture else ""
+    # Preserve filename whitespace in NUL-separated Git output.
+    return result.stdout.rstrip("\r\n") if capture else ""
 
 
 def git(*args, capture=False):
@@ -53,6 +55,56 @@ def valid_origin(url):
         f"ssh://git@github.com/{REPOSITORY}",
         f"ssh://git@github.com/{REPOSITORY}.git",
     }
+
+
+def owned_path(name, root=ROOT):
+    """Recognize website sources/assets without including unrelated local files."""
+    if name in PUBLISH_FILES + OPTIONAL_FILES:
+        return True
+    if name in LEGACY_FILES:
+        return not (root / name).exists()  # Only remove the retired JSON sources.
+    path = PurePosixPath(name)
+    if path.is_absolute() or any(part.startswith(".") for part in path.parts):
+        return False
+    if not path.parts:
+        return False
+    if path.parts[0] == "content":
+        return path.suffix.lower() == ".md"
+    return path.parts[0] in {"assets", "_pages"} and path.suffix.lower() in ASSET_TYPES
+
+
+def reject_symlinks(path, root):
+    """Git stores symlinks, not their target files, so they cannot be site assets."""
+    if not path.resolve().is_relative_to(root.resolve()):
+        raise PublishError(f"Website files must stay inside the website folder: {path.name}")
+    for parent in (path, *path.parents):
+        if parent == root:
+            break
+        if parent.is_symlink():
+            raise PublishError(f"Website files and folders must not be symlinks: {parent.name}. "
+                               "Copy the actual file into assets/ instead.")
+
+
+def publish_paths(root=ROOT, tracked=None):
+    root = root.resolve()
+    if tracked is None:
+        tracked = git("ls-files", "-z", capture=True).split("\0")
+    paths = set(PUBLISH_FILES)
+    paths.update(name for name in tracked if name and owned_path(name, root))
+    for directory in ("content", "assets", "_pages"):
+        folder = root / directory
+        reject_symlinks(folder, root)
+        for path in folder.rglob("*"):
+            name = path.relative_to(root).as_posix()
+            if path.is_symlink() and path.is_dir():
+                reject_symlinks(path, root)
+            if path.is_file() and owned_path(name, root):
+                reject_symlinks(path, root)
+                paths.add(name)
+    paths.update(name for name in OPTIONAL_FILES if (root / name).is_file())
+    for name in paths:
+        reject_symlinks(root / name, root)
+    return sorted(paths)
 
 
 class Page(HTMLParser):
@@ -78,6 +130,9 @@ class Page(HTMLParser):
 
 
 def validate_site(root=ROOT):
+    root = root.resolve()
+    # Check the exact filesystem discovery used by publishing, without reading Git.
+    publishable = set(publish_paths(root, tracked=[]))
     pages = {}
     for name in SITE_FILES:
         path = root / name
@@ -102,13 +157,19 @@ def validate_site(root=ROOT):
             else:
                 target = ((root / local_path.lstrip("/")) if local_path.startswith("/")
                           else path.parent / local_path) if local_path else path
+            reject_symlinks(target, root)
             target = target.resolve()
             if not target.is_relative_to(root.resolve()):
                 raise PublishError(f"Link leaves the website folder: {reference}")
             if target.is_dir():
                 target = target / "index.html"
+            reject_symlinks(target, root)
             if not target.is_file():
                 raise PublishError(f"Broken local link in {path.name}: {reference}")
+            relative_target = target.relative_to(root.resolve()).as_posix()
+            if relative_target not in publishable:
+                raise PublishError(f"Local link in {path.name} points to a file that will not be published: {reference}. "
+                                   "Put PDFs, images, and other supported website assets in assets/ and update the link.")
             if url.fragment and target.suffix == ".html":
                 if target not in pages:
                     target_page = Page(target)
@@ -121,9 +182,8 @@ def validate_site(root=ROOT):
 
 
 def verify_staging():
-    allowed = set(PUBLISH_FILES + OPTIONAL_FILES)
     staged = git("diff", "--cached", "--name-only", "--no-renames", "-z", capture=True).split("\0")
-    unrelated = sorted(name for name in staged if name and name not in allowed)
+    unrelated = sorted(name for name in staged if name and not owned_path(name))
     if unrelated:
         raise PublishError("Unrelated files are already staged. Unstage or commit them separately before publishing: "
                            + ", ".join(unrelated))
@@ -145,7 +205,7 @@ def verify_checkout():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("-m", "--message", default="Update personal homepage", help="Git commit message")
-    parser.add_argument("--check", action="store_true", help="Build and validate locally; do not fetch, stage, commit, or push")
+    parser.add_argument("--check", action="store_true", help="Build from Markdown and validate locally; do not fetch, stage, commit, or push")
     args = parser.parse_args()
     if not args.message.strip():
         raise PublishError("The commit message cannot be empty.")
@@ -165,11 +225,7 @@ def main():
                            "Review and integrate the remote changes first, then rerun. "
                            f"For a simple fast-forward after saving your edits: git pull --ff-only origin {BRANCH}")
 
-    paths = list(PUBLISH_FILES)
-    for name in OPTIONAL_FILES:
-        if (ROOT / name).is_file() or git("ls-files", "--", name, capture=True):
-            paths.append(name)
-    git("add", "--", *paths)
+    git("add", "--", *publish_paths())
     verify_staging()
     if git("diff", "--cached", "--name-only", capture=True):
         git("commit", "-m", args.message)

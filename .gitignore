@@ -5,3 +5,4 @@ __pycache__/
 /LOCAL*.md
 /DEPLOY.md
 /DEPLOYMENT.md
+/.local/

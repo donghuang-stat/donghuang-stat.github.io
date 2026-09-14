@@ -39,6 +39,7 @@ h1,h2,h3 { font-weight:400; }
 .role { font:13px/1.8 var(--sans); color:var(--muted); margin-bottom:24px; }
 .bio { max-width:620px; font:16px/1.85 var(--serif); }
 .bio p+p { margin-top:12px; }
+.markdown-body > *+* { margin-top:10px; }
 .hero-links { display:flex; gap:25px; flex-wrap:wrap; font:12px/1.7 var(--sans); margin-top:24px; }
 .portrait { margin:0; align-self:start; padding-top:5px; }
 .portrait img { width:225px; height:auto; aspect-ratio:2 / 3; object-fit:cover; object-position:50% 46%; border-radius:1px; }

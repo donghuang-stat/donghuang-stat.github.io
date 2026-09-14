@@ -1,53 +1,140 @@
-# Dong Huang's personal homepage
+# Dong Huang 的个人主页
 
-Source for [donghuang-stat.github.io](https://donghuang-stat.github.io/), with Home, Research, News, and a direct CV PDF link. The site uses static HTML, CSS, JavaScript, and a Python standard-library generator. Python 3.9 or newer is sufficient; no package installation is required.
+网站：[donghuang-stat.github.io](https://donghuang-stat.github.io/)。日常更新只需要编辑 `content/` 里的 Markdown 文件，不需要写 HTML 或 JSON。页面布局、字体和配色由生成器统一处理。
 
-## Preview locally
+本项目的本地工作集中在 `page/`；旧的上传与发布目录收纳在 `.local/archive/`，作为本地备份，不会发布到 GitHub。
 
-Run these commands from this repository's root directory:
+## 改哪里
+
+| 想修改的内容 | 文件 |
+| --- | --- |
+| 姓名、身份、个人简介、联系方式、照片和 CV 链接 | [content/profile.md](content/profile.md) |
+| 首页 Selected research 的论文选择、顺序和说明 | [content/selected-research.md](content/selected-research.md) |
+| 首页 Recent news 的标题和显示条数 | [content/recent-news.md](content/recent-news.md) |
+| 全部新闻；首页自动取其中前几条 | [content/news.md](content/news.md) |
+| Education | [content/education.md](content/education.md) |
+| Selected awards | [content/awards.md](content/awards.md) |
+| Research 页简介、论文分组和顺序 | [content/research.md](content/research.md) |
+| 每篇论文的标题、作者、年份、发表信息和链接 | [content/papers/](content/papers/) 下的对应论文文件 |
+
+同一篇论文只维护一份文件；Home 和 Research 会同步读取。`selected-research.md` 和 `research.md` 中的链接顺序，就是页面上的显示顺序。
+
+文件中的 `#` 是板块或论文标题，`##` 是字段或条目。请保留 `## Biography`、`## Authors`、`## Papers` 等固定字段名的英文拼写，在它们下面修改内容。新闻、教育和奖项的 `##` 日期标题则可以按实际情况新增或修改。
+
+正文可以直接写普通英文，也支持常用 Markdown：
+
+```markdown
+一段普通文字。段落之间空一行。
+
+**加粗文字**，*斜体文字*，以及 [链接文字](https://example.com)。
+
+- 第一项
+- 第二项
+```
+
+本地链接相对于当前 Markdown 文件填写，普通 Markdown 预览也能直接打开。`content/profile.md` 中的照片写成 `![图片说明](../assets/portrait.jpg)`，CV 写成 `[CV (PDF)](../assets/CV_2608.pdf)`；`content/papers/` 下的论文要链接到 `assets/`，则使用 `../../assets/文件名`。论文目录中的链接沿用 `papers/论文编号.md`。
+
+## 添加新闻
+
+在 `content/news.md` 的 `# News` 后面、现有新闻之前加入一条，保持最新消息在最上面。下面是格式示例，请替换为自己的日期和消息：
+
+```markdown
+## September 2026
+
+I will present our work at [Conference name](https://example.com).
+```
+
+日期使用完整英文月份和四位年份。首页展示前几条，由 `content/recent-news.md` 中 `## Display count` 下的数字决定。
+
+## 添加或更新论文
+
+修改现有论文时，直接打开对应的 `content/papers/编号.md`。例如 2601 的论文标题在 `content/papers/2601.13966.md` 第一行。
+
+添加论文时，新建文件，例如 `content/papers/new-paper.md`，复制下面的模板并替换标题、作者、年份和链接：
+
+```markdown
+# Your paper title
+
+## Authors
+
+- Dong Huang
+- Coauthor Name
+
+## Year
+
+2026
+
+## Venue
+
+Submitted
+
+## Short venue
+
+Manuscript
+
+## Author order
+
+Listed
+
+## Links
+
+- [arXiv](https://arxiv.org/abs/REPLACE_WITH_ID)
+```
+
+`Author order` 填 `Alphabetical` 会显示 α–β 标记，填 `Listed` 则按作者列表展示而不加标记。共同一作可增加 `## Equal contribution`，下面用 `- 作者姓名` 列出，姓名需与 Authors 一致。`## Note` 是 Research 页备注；`## Selected note` 是首页 Selected research 中的备注，两者都可省略。
+
+然后在 `content/research.md` 的 `## Manuscripts` 或 `## Publications` 下添加：
+
+```markdown
+- [new-paper](papers/new-paper.md)
+```
+
+需要首页精选时，在 `content/selected-research.md` 的 `## Papers` 下也加入同一行。接收发表后，可以更新论文的 Venue 和 Short venue，并把它从 Manuscripts 列表移到 Publications 列表。这里只需要移动链接，不用复制论文文件。
+
+新增海报放到 `assets/`，再在论文的 `## Links` 下加入 `- [Poster](../../assets/new-poster.pdf)`。发布脚本自动处理 `content/` 下的 Markdown，以及 `assets/`、`_pages/` 下的 PDF 和常见网页资源，无需修改发布清单。支持的资源扩展名是 `.pdf`、`.jpg`、`.jpeg`、`.png`、`.webp`、`.svg`、`.gif`、`.css`、`.js`、`.ico`、`.woff`、`.woff2`，包括这些文件的新增、修改和删除。
+
+## 添加奖项或教育经历
+
+在 `content/awards.md` 中复制一个条目，修改日期和正文；可以使用 Markdown 链接：
+
+```markdown
+## 2027
+
+[Award name](https://example.com)
+```
+
+在 `content/education.md` 中，条目标题格式是 `日期 | 身份`，第一段是学校，第二段是详细说明：
+
+```markdown
+## 2027 – 2028 | Visiting Scholar
+
+University name
+
+Department name · Host: Prof. [Name](https://example.com)
+```
+
+奖项和教育经历按文件中的顺序显示。
+
+## 本地检查、预览和发布
+
+需要 Python 3.9 或更新版本，以及 Git；不需要安装额外 Python 包。从这个仓库的根目录运行：
 
 ```sh
 python3 publish.py --check
 python3 serve.py
 ```
 
-Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/). Use `python3 serve.py --port 4174` if port 4173 is already in use. Press Control-C to stop the server.
+打开 [本地预览](http://127.0.0.1:4173/)。`serve.py` 启动时会自动生成页面；之后保存 Markdown，刷新浏览器就会自动重建并显示修改，不需要每次重跑检查或重启预览。端口被占用时可用 `python3 serve.py --port 4174`。按 Control-C 停止预览。
 
-`--check` rebuilds the HTML and validates required files, local links, links to this site's domain, and HTML anchors. It does not fetch, commit, or push. After editing content, rerun it and refresh the preview.
-
-## Update content
-
-| Change | Edit |
-| --- | --- |
-| Biography, contact details, papers, selected research, news, education, awards | `data/content.json` |
-| CV PDF path and metadata; research interests used on Research | `data/cv.json` |
-| Downloadable CV | `assets/CV_2608.pdf` |
-| Home photograph | `assets/portrait.jpg` |
-| Page structure and generated navigation | `build.py` |
-| Typography, spacing, responsive layout, colors | `assets/style.css` |
-| Theme selection behavior | `assets/site.js` |
-
-Edit the data files instead of generated `index.html`, `research.html`, or `news.html`; rebuilding replaces those HTML files. Paper records are shared between Home and Research, and `selected_ids` controls the selection and order on Home. News entries retain the author's original first-person wording.
-
-The CV PDF is an independent document: changing the website data does not modify its contents. To update it without changing links, replace `assets/CV_2608.pdf` and update its metadata in `data/cv.json`. If you choose a new filename, also update the PDF entry in `SITE_FILES` in `publish.py`.
-
-The `sources/` directory retains the original public biography, publication list, and extracted CV text for reference. These are historical snapshots, not the current content source for the generated pages.
-
-## Publish an update
-
-The publishing branch is **`homepage-redesign`**. GitHub Pages publishes its **`/(root)`** directory. The `master` branch retains the old website as a backup.
-
-After checking the local preview, run:
+`--check` 可用于发布前或不启动预览时的独立检查：只重建和检查页面、链接、锚点及资源，不会提交或上传。Markdown 格式有误时，预览服务会在终端提示，并保留上次成功生成的页面。确认预览后发布：
 
 ```sh
-python3 publish.py -m "Update research and news"
+python3 publish.py -m "Update homepage content"
 ```
 
-The script checks the repository and branch, rebuilds and validates the site, fetches the publishing branch, commits changed website files, and pushes to `origin/homepage-redesign`. It requires Git and working GitHub write access. If the remote contains commits missing locally, or unrelated changes are already staged, it stops with an explanation; it never force-pushes.
+脚本会重建、检查、提交并推送到 `homepage-redesign` 分支。若远端有本地尚未包含的提交，或存在无关的已暂存文件，脚本会停止并说明原因，不会强制推送。出现 `Push succeeded` 后，在 [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) 等待 Pages 部署成功，再刷新官网。
 
-After a successful push, check [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) for the Pages deployment, then refresh the [live website](https://donghuang-stat.github.io/). A push finishes before the website deployment does.
-
-For a fresh checkout on another computer:
+GitHub Pages 使用 `homepage-redesign` 分支的 `/(root)` 目录；`master` 保留旧站备份。在另一台电脑上使用时，可以克隆该分支：
 
 ```sh
 git clone --branch homepage-redesign https://github.com/donghuang-stat/donghuang-stat.github.io.git
@@ -55,22 +142,14 @@ cd donghuang-stat.github.io
 python3 publish.py --check
 ```
 
-Configure GitHub write access on that computer before publishing. The publishing script accepts the repository's HTTPS or SSH origin URL.
+新电脑需要单独配置 GitHub 写入权限，才能发布。
 
-## Files kept for existing links
+## 照片、CV 和保留文件
 
-The original Jekyll template, example content, dependencies, and unused media have been removed. `.nojekyll` tells GitHub Pages to serve the generated static files directly.
+CV 是独立 PDF，修改网页不会改变 PDF 内容。最方便的更新方法是直接替换 `assets/CV_2608.pdf`。如果换了文件名，把 `content/profile.md` 中的 CV 链接改为 `../assets/新文件名.pdf` 即可；导航、首页和 `/cv/` 跳转会跟随该链接。
 
-Five research posters remain at their original paths because the current site links to them:
+照片同样可以替换 `assets/portrait.jpg`，或在 `content/profile.md` 中改为新图片路径。
 
-```text
-_pages/2024_PKU_THU_poster.pdf
-_pages/2026_Peking_Tsinghua_Poster.pdf
-_pages/Bounded_degree_poster.pdf
-_pages/ICML2025_poster.pdf
-_pages/ICML2026poster.pdf
-```
+`_pages/` 只保留当前论文引用的五份海报，以维持原链接。`/publications/`、`/news/` 和 `/cv/` 保留小型跳转页。`sources/` 是原官网内容的历史参考，不参与日常生成。
 
-Small generated redirects preserve `/publications/`, `/news/`, and `/cv/`. The CV redirect opens the PDF; there is no separate CV content page. When adding a new local asset or PDF, add its path to `SITE_FILES` in `publish.py` so that validation and publishing include it.
-
-To restore the old site, select `master` and `/(root)` in the repository's [Pages settings](https://github.com/donghuang-stat/donghuang-stat.github.io/settings/pages). Keep the old branch unchanged if this rollback option is needed.
+`index.html`、`research.html`、`news.html` 和跳转页都是自动生成的；日常内容请修改 Markdown。只有需要调整版式或功能时，才需要编辑 `build.py`、`assets/style.css` 或 `assets/site.js`。
