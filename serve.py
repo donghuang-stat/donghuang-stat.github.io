@@ -17,9 +17,8 @@ class Rebuilder:
         self.lock = Lock()
 
     def fingerprint(self):
-        files = [self.root / 'build.py', self.root / 'content.py']
-        files.extend(sorted(path for path in (self.root / 'content').rglob('*')
-                            if path.is_file() and path.suffix.lower() == '.md'))
+        files = [self.root / name for name in
+                 ('home.md', 'research.md', 'news.md', 'build.py', 'content.py')]
         result = []
         for path in files:
             try:
@@ -83,7 +82,7 @@ def main():
         parser.exit(1, f'Cannot start preview on port {args.port}: {exc}\nTry --port 4174.\n')
     rebuilder.refresh()
     print(f'Local preview: http://127.0.0.1:{args.port}/', flush=True)
-    print('Edit content/*.md, save, and refresh the browser. Pages rebuild automatically.', flush=True)
+    print('Edit home.md, research.md, or news.md, save, and refresh. Pages rebuild automatically.', flush=True)
     print('Press Control-C to stop.', flush=True)
     try:
         server.serve_forever()

@@ -171,23 +171,90 @@ class Document:
     title: str
     intro: str
     sections: list
+    metadata: dict
 
-    def field(self, name, optional=False, allow_empty=False):
+    def field(self, name):
         found = [section.body for section in self.sections if section.heading == name]
-        if not found and optional:
-            return ''
-        if len(found) != 1 or (not found[0].strip() and not (allow_empty or optional)):
-            raise ContentError(f'{self.path}: include exactly one nonempty "## {name}" section.')
+        if len(found) != 1:
+            raise ContentError(f'{self.path}: include exactly one "## {name}" section.')
         return found[0]
 
-    def only(self, names, allow_intro=True):
-        if self.intro and not allow_intro:
-            raise ContentError(f'{self.path}: put content below its ## field heading, not directly below the # title.')
+    def only(self, names):
         unexpected = [s.heading for s in self.sections if s.heading not in names]
         if unexpected:
             raise ContentError(f'{self.path}: unrecognized section(s): {", ".join(unexpected)}. Check the heading spelling in README.md.')
         if len({s.heading for s in self.sections}) != len(self.sections):
             raise ContentError(f'{self.path}: duplicate section heading.')
+
+    def meta(self, name, allow_empty=False):
+        if name not in self.metadata or (not self.metadata[name] and not allow_empty):
+            raise ContentError(f'{self.path}: add "{name}: value" between the two --- lines at the top.')
+        return self.metadata[name]
+
+    def only_meta(self, names):
+        unexpected = set(self.metadata) - set(names)
+        if unexpected:
+            raise ContentError(f'{self.path}: unrecognized option(s): {", ".join(sorted(unexpected))}. Check README.md.')
+
+
+def split_sections(text, level, context):
+    """Read page ## sections or ### entries without relying on HTML markup."""
+    intro, sections, pending, heading = '', [], [], None
+    marker = '#' * level + ' '
+    for line in text.splitlines():
+        if line.startswith(marker):
+            body = '\n'.join(pending).strip()
+            if heading is None:
+                intro = body
+            else:
+                sections.append(Section(heading, body))
+            heading, pending = line[len(marker):].strip(), []
+            if not heading:
+                raise ContentError(f'{context}: a {marker.strip()} heading is empty.')
+        elif re.match(r'^#{1,' + str(level - 1) + r'}\s', line):
+            raise ContentError(f'{context}: entries here use {marker.strip()} headings.')
+        else:
+            pending.append(line)
+    body = '\n'.join(pending).strip()
+    if heading is None:
+        intro = body
+    else:
+        sections.append(Section(heading, body))
+    return intro, sections
+
+
+def frontmatter(lines, path):
+    """Read one-line key: value options, the flat subset of YAML used here."""
+    metadata = {}
+    if not lines or lines[0].strip() != '---':
+        return metadata, lines
+    try:
+        end = next(i for i in range(1, len(lines)) if lines[i].strip() == '---')
+    except StopIteration as exc:
+        raise ContentError(f'{path}: close the top options block with a second --- line.') from exc
+    for line in lines[1:end]:
+        if not line.strip() or line.lstrip().startswith('#'):
+            continue
+        match = re.fullmatch(r'([a-z][a-z0-9_]*)\s*:\s*(.*)', line)
+        if not match:
+            raise ContentError(f'{path}: keep each top option on one line, e.g. recent_news_count: 3.')
+        key, value = match.groups()
+        value = value.strip()
+        if key in metadata:
+            raise ContentError(f'{path}: duplicate top option: {key}.')
+        if value.startswith(('"', "'")):
+            if len(value) < 2 or value[-1] != value[0]:
+                raise ContentError(f'{path}: close the quotes around {key}, or omit the quotes.')
+            if value[0] == '"':
+                import json
+                try:
+                    value = json.loads(value)
+                except ValueError as exc:
+                    raise ContentError(f'{path}: invalid double-quoted value for {key}.') from exc
+            else:
+                value = value[1:-1].replace("''", "'")
+        metadata[key] = value
+    return metadata, lines[end + 1:]
 
 
 def read_document(path):
@@ -196,166 +263,142 @@ def read_document(path):
     except OSError as exc:
         raise ContentError(f'{path}: cannot read Markdown file ({exc}).') from exc
     text = re.sub(r'<!--.*?-->', '', text, flags=re.S).strip()
-    lines = text.splitlines()
-    if not lines or not lines[0].startswith('# '):
-        raise ContentError(f'{path}: start with a title, e.g. # Education.')
+    metadata, lines = frontmatter(text.splitlines(), path)
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    if not lines or not lines[0].startswith('# ') or not lines[0][2:].strip():
+        raise ContentError(f'{path}: add one page title, e.g. # Research, below the top options.')
     title = lines[0][2:].strip()
-    if not title:
-        raise ContentError(f'{path}: the # title must not be empty.')
-    intro, sections, pending = '', [], []
-    heading = None
-    for line in lines[1:]:
-        if line.startswith('# '):
-            raise ContentError(f'{path}: use one # title; entries and fields start with ##.')
-        if line.startswith('## '):
-            body = '\n'.join(pending).strip()
-            if heading is None:
-                intro = body
-            else:
-                sections.append(Section(heading, body))
-            heading, pending = line[3:].strip(), []
-        else:
-            pending.append(line)
-    body = '\n'.join(pending).strip()
-    if heading is None:
-        intro = body
-    else:
-        sections.append(Section(heading, body))
-    # Validate Markdown links before templates start generating files.
+    intro, sections = split_sections('\n'.join(lines[1:]), 2, path)
     try:
-        for value in [title, intro] + [s.body for s in sections]:
+        for value in [title, intro] + [section.body for section in sections]:
             blocks(value)
     except ContentError as exc:
         raise ContentError(f'{path}: {exc}') from exc
-    return Document(Path(path), title, intro, sections)
+    return Document(Path(path), title, intro, sections, metadata)
 
 
-def scalar(doc, name):
-    value = doc.field(name)
-    if '\n' in value:
-        raise ContentError(f'{doc.path}: "## {name}" must contain one line.')
-    return value
-
-
-def bullet_values(value, context):
-    items = []
-    for line in value.splitlines():
-        if not line.strip():
-            continue
-        match = re.fullmatch(r'\s*[-*+]\s+(.+)', line)
-        if not match:
-            raise ContentError(f'{context}: write one bullet per item, e.g. - Dong Huang.')
-        items.append(match[1])
-    if not items:
-        raise ContentError(f'{context}: the list is empty.')
-    return items
-
-
-def single_link(value, context, image=False):
-    found = _link_at(value.strip(), 0)
-    if not found or found[0] != image or found[3] != len(value.strip()):
-        example = '![Description](assets/portrait.jpg)' if image else '[Label](https://example.com)'
-        raise ContentError(f'{context}: use a Markdown {"image" if image else "link"}, e.g. {example}.')
+def single_link(value, context):
+    value = value.strip()
+    found = _link_at(value, 0)
+    if not found or found[0] or found[3] != len(value):
+        raise ContentError(f'{context}: use a Markdown link, e.g. [All research →](research.html).')
     return {'label': found[1], 'url': found[2]}
 
 
-def link_list(doc, name, allow_empty=False):
-    value = doc.field(name, allow_empty=allow_empty)
-    if not value and allow_empty:
-        return []
-    return [single_link(item, f'{doc.path}, {name}') for item in bullet_values(value, f'{doc.path}, {name}')]
-
-
-def integer(doc, name):
-    value = scalar(doc, name)
-    if not value.isdigit() or not 1 <= int(value) <= 9999:
-        raise ContentError(f'{doc.path}: "## {name}" needs a positive whole number.')
+def number(value, context, minimum=0):
+    if not re.fullmatch(r'\d+', value) or not minimum <= int(value) <= 9999:
+        raise ContentError(f'{context}: use a whole number from {minimum} to 9999.')
     return int(value)
 
 
-def _paper(path, root):
-    doc = read_document(path)
-    doc.only({'Authors', 'Year', 'Venue', 'Short venue', 'Author order', 'Equal contribution', 'Links', 'Note', 'Selected note'}, allow_intro=False)
-    order = scalar(doc, 'Author order')
-    if order not in ('Alphabetical', 'Listed'):
-        raise ContentError(f'{path}: Author order must be Alphabetical or Listed.')
-    authors = bullet_values(doc.field('Authors'), f'{path}, Authors')
-    cofirst = bullet_values(doc.field('Equal contribution'), f'{path}, Equal contribution') if doc.field('Equal contribution', optional=True) else []
-    if len(set(authors)) != len(authors) or not set(cofirst) <= set(authors):
-        raise ContentError(f'{path}: authors must be unique; equal contributors must be in Authors.')
+def paper_record(section, group, doc, root):
+    """Each ### paper is a compact, readable Markdown list in research.md."""
+    context = f'{doc.path}, {section.heading}'
+    fields, links, prose = {}, [], []
+    allowed = {'ID', 'Authors', 'Year', 'Venue', 'Short venue', 'Author order',
+               'Equal contribution', 'Note', 'Selected note'}
+    last_field = None
+    for line in section.body.splitlines():
+        if not line.strip():
+            prose.append('')
+            last_field = None
+            continue
+        match = re.fullmatch(r'\s{0,3}[-*+]\s+(.+)', line)
+        if match:
+            value = match[1]
+            last_field = None
+            if value.startswith('['):
+                links.append(public_link(single_link(value, context), doc.path, root))
+                continue
+            if ':' not in value:
+                raise ContentError(f'{context}: use - Field: value or - [Link](URL); see the paper example in README.md.')
+            key, value = value.split(':', 1)
+            key, value = key.strip(), value.strip()
+            if key not in allowed or key in fields:
+                raise ContentError(f'{context}: unknown or duplicate paper field: {key}.')
+            fields[key] = value
+            last_field = key
+        elif line.startswith(('  ', '\t')) and last_field:
+            fields[last_field] += ' ' + line.strip()
+        else:
+            if line.startswith('#'):
+                raise ContentError(f'{context}: each paper starts with ###, followed by its field list.')
+            prose.append(line)
+            last_field = None
+    for key in ('ID', 'Authors', 'Year', 'Venue', 'Short venue', 'Author order'):
+        if not fields.get(key):
+            raise ContentError(f'{context}: add a nonempty - {key}: value line.')
+    paper_id = fields['ID']
+    if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', paper_id):
+        raise ContentError(f'{context}: ID uses letters, numbers, dots, dashes, or underscores.')
+    authors = [name.strip() for name in fields['Authors'].split(';')]
+    cofirst = [name.strip() for name in fields.get('Equal contribution', '').split(';') if name.strip()]
+    if not all(authors) or len(set(authors)) != len(authors) or not set(cofirst) <= set(authors):
+        raise ContentError(f'{context}: separate unique authors with semicolons; equal contributors must be in Authors.')
+    if fields['Author order'] not in ('Alphabetical', 'Listed'):
+        raise ContentError(f'{context}: Author order must be Alphabetical or Listed.')
+    note = '\n\n'.join(value for value in (fields.get('Note', ''), '\n'.join(prose).strip()) if value)
     return {
-        'id': path.stem, 'title': doc.title, 'authors': authors, 'year': integer(doc, 'Year'),
-        'venue': site_text(doc.field('Venue'), path, root), 'short_venue': scalar(doc, 'Short venue'),
-        'alphabetical': order == 'Alphabetical', 'cofirst': cofirst,
-        'links': [public_link(item, path, root) for item in link_list(doc, 'Links', allow_empty=True)],
-        'note': site_text(doc.field('Note', optional=True), path, root),
-        'selected_note': site_text(doc.field('Selected note', optional=True), path, root),
+        'id': paper_id, 'title': section.heading, 'authors': authors,
+        'year': number(fields['Year'], context + ', Year', minimum=1), 'group': group,
+        'venue': site_text(fields['Venue'], doc.path, root), 'short_venue': fields['Short venue'],
+        'alphabetical': fields['Author order'] == 'Alphabetical', 'cofirst': cofirst,
+        'links': links, 'note': site_text(note, doc.path, root),
+        'selected_note': site_text(fields.get('Selected note', ''), doc.path, root),
     }
 
 
-def paper_references(doc, name, root):
-    ids = []
-    for item in link_list(doc, name, allow_empty=True):
-        path = (doc.path.parent / unquote(item['url'])).resolve()
-        if path.parent != (root / 'content/papers').resolve() or path.suffix != '.md' or not path.is_file():
-            raise ContentError(f'{doc.path}: {item["url"]} must point to an existing content/papers/*.md file.')
-        if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', path.stem):
-            raise ContentError(f'{doc.path}: use letters, numbers, dots, dashes, or underscores in paper filenames.')
-        ids.append(path.stem)
-    if len(set(ids)) != len(ids):
-        raise ContentError(f'{doc.path}: duplicate paper in {name}.')
-    return ids
-
-
 MONTHS = 'January February March April May June July August September October November December'.split()
+HOME_OPTIONS = {'chinese_name', 'tagline', 'role', 'email', 'scholar', 'cv', 'photo',
+                'photo_alt', 'photo_caption', 'description', 'selected_papers', 'recent_news_count'}
 
 
 def load_site(root):
     root = Path(root)
-    folder = root / 'content'
-    profile_doc = read_document(folder / 'profile.md')
-    profile_doc.only({'Chinese name', 'Tagline', 'Role', 'Biography', 'Links', 'Photo', 'Photo caption', 'Description'}, allow_intro=False)
-    profile = {key: scalar(profile_doc, name) for key, name in (
-        ('chinese_name', 'Chinese name'), ('tagline', 'Tagline'), ('role', 'Role'),
-        ('caption', 'Photo caption'), ('description', 'Description'))}
-    profile.update(name=profile_doc.title, bio=site_text(profile_doc.field('Biography'), profile_doc.path, root),
-                   links=[public_link(item, profile_doc.path, root) for item in link_list(profile_doc, 'Links')],
-                   photo=public_link(single_link(profile_doc.field('Photo'), profile_doc.path, image=True), profile_doc.path, root))
-    for label, key in [('Email', 'email_url'), ('Google Scholar', 'scholar'), ('CV (PDF)', 'cv')]:
-        values = [item['url'] for item in profile['links'] if item['label'] == label]
-        if len(values) != 1:
-            raise ContentError(f'{profile_doc.path}: Links must include exactly one [{label}](...).')
-        profile[key] = values[0]
-    if urlsplit(profile['cv']).scheme or urlsplit(profile['cv']).netloc or not profile['cv'].endswith('.pdf') or profile['cv'].startswith('/'):
-        raise ContentError(f'{profile_doc.path}: CV (PDF) must use a local PDF path, e.g. ../assets/CV_2608.pdf.')
+    home = read_document(root / 'home.md')
+    home.only({'Selected research', 'Recent news', 'Education', 'Selected awards'})
+    home.only_meta(HOME_OPTIONS)
+    profile = {key: home.meta(key) for key in ('chinese_name', 'tagline', 'role', 'description')}
+    profile.update(name=home.title, bio=site_text(home.intro, home.path, root), caption=home.meta('photo_caption'),
+                   photo={'label': home.meta('photo_alt'), 'url': site_url(safe_url(home.meta('photo')), home.path, root)})
+    email = home.meta('email')
+    if not re.fullmatch(r'[^\s@]+@[^\s@]+', email):
+        raise ContentError(f'{home.path}: email should be the address alone, e.g. hd23@mails.tsinghua.edu.cn.')
+    profile['email_url'] = 'mailto:' + email
+    profile['scholar'] = site_url(safe_url(home.meta('scholar')), home.path, root)
+    profile['cv'] = site_url(safe_url(home.meta('cv')), home.path, root)
+    if urlsplit(profile['cv']).scheme or not urlsplit(profile['cv']).path.lower().endswith('.pdf'):
+        raise ContentError(f'{home.path}: cv must point to a local PDF, e.g. assets/CV_2608.pdf.')
+    profile['links'] = [{'label': label, 'url': profile[key]} for label, key in
+                        [('Email', 'email_url'), ('Google Scholar', 'scholar'), ('CV (PDF)', 'cv')]]
 
-    research = read_document(folder / 'research.md')
-    research.only({'Note', 'Manuscripts', 'Publications'})
-    groups = {group: paper_references(research, heading, root) for group, heading in [('manuscripts', 'Manuscripts'), ('publications', 'Publications')]}
-    all_ids = [paper_id for items in groups.values() for paper_id in items]
-    if len(set(all_ids)) != len(all_ids):
-        raise ContentError(f'{research.path}: each paper belongs to exactly one research section.')
-    unused = {p.stem for p in (folder / 'papers').glob('*.md')} - set(all_ids)
-    if unused:
-        raise ContentError(f'{research.path}: add these paper files to Manuscripts or Publications: {", ".join(sorted(unused))}.')
-    papers = []
-    for group, ids in groups.items():
-        for paper_id in ids:
-            paper = _paper(folder / 'papers' / (paper_id + '.md'), root)
-            paper['group'] = group
-            papers.append(paper)
-    selected = read_document(folder / 'selected-research.md')
-    selected.only({'Papers', 'Note'})
-    selected_ids = paper_references(selected, 'Papers', root)
-    if not set(selected_ids) <= set(all_ids):
-        raise ContentError(f'{selected.path}: selected papers must also be listed in research.md.')
-    research.intro = site_text(research.intro, research.path, root)
-    for doc in (research, selected):
-        for section in doc.sections:
-            if section.heading == 'Note':
-                section.body = site_text(section.body, doc.path, root)
+    research = read_document(root / 'research.md')
+    research.only({'Manuscripts', 'Publications'})
+    research.only_meta({'author_order_note'})
+    papers, research_intros = [], {}
+    for heading, group in [('Manuscripts', 'manuscripts'), ('Publications', 'publications')]:
+        intro, entries = split_sections(research.field(heading), 3, f'{research.path}, {heading}')
+        research_intros[group] = site_text(intro, research.path, root)
+        papers.extend(paper_record(entry, group, research, root) for entry in entries)
+    all_ids = [paper['id'] for paper in papers]
+    slugs = [paper_id.replace('.', '-') for paper_id in all_ids]
+    if len(set(slugs)) != len(slugs):
+        raise ContentError(f'{research.path}: every paper needs a unique ID (dots and dashes produce the same page anchor).')
+    selected_ids = [value.strip() for value in home.meta('selected_papers', allow_empty=True).split(',') if value.strip()]
+    if len(set(selected_ids)) != len(selected_ids) or not set(selected_ids) <= set(all_ids):
+        raise ContentError(f'{home.path}: selected_papers must contain unique IDs that exist in research.md.')
+    selected_parts = paragraphs(home.field('Selected research'))
+    if not selected_parts:
+        raise ContentError(f'{home.path}: Selected research starts with [All research →](research.html).')
+    selected_link = public_link(single_link(selected_parts[0], home.path), home.path, root)
+    recent_parts = paragraphs(home.field('Recent news'))
+    if not recent_parts:
+        raise ContentError(f'{home.path}: Recent news starts with [All news →](news.html).')
+    recent_link = public_link(single_link(recent_parts[0], home.path), home.path, root)
 
-    news_doc = read_document(folder / 'news.md')
+    news_doc = read_document(root / 'news.md')
+    news_doc.only_meta(set())
     news = []
     for section in news_doc.sections:
         try:
@@ -364,34 +407,36 @@ def load_site(root):
             if not re.fullmatch(r'\d{4}', year) or not section.body:
                 raise ValueError()
         except ValueError as exc:
-            raise ContentError(f'{news_doc.path}: use a month/year heading (## July 2026) followed by the news text.') from exc
-        news.append({'date': f'{year}-{month_number:02}', 'label': section.heading, 'text': site_text(section.body, news_doc.path, root)})
+            raise ContentError(f'{news_doc.path}: use ## July 2026 followed by the news text.') from exc
+        news.append({'date': f'{year}-{month_number:02}', 'label': section.heading,
+                     'text': site_text(section.body, news_doc.path, root)})
     news.sort(key=lambda item: item['date'], reverse=True)
-    recent = read_document(folder / 'recent-news.md')
-    recent.only({'Display count'})
 
-    education_doc = read_document(folder / 'education.md')
+    education_intro, education_entries = split_sections(home.field('Education'), 3, f'{home.path}, Education')
     education = []
-    for section in education_doc.sections:
+    for section in education_entries:
         fields = section.heading.split(' | ', 1)
         body = paragraphs(section.body)
-        if len(fields) != 2 or not body:
-            raise ContentError(f'{education_doc.path}: use ## Dates | Degree or role, then institution and details as separate paragraphs.')
-        education.append({'dates': fields[0], 'title': fields[1], 'institution': site_text(body[0], education_doc.path, root), 'detail': site_text('\n\n'.join(body[1:]), education_doc.path, root)})
-    awards_doc = read_document(folder / 'awards.md')
-    awards = [{'date': section.heading, 'text': site_text(section.body, awards_doc.path, root)} for section in awards_doc.sections]
+        if len(fields) != 2 or not all(fields) or not body:
+            raise ContentError(f'{home.path}: use ### Dates | Degree or role, then institution and details as separate paragraphs.')
+        education.append({'dates': fields[0], 'title': fields[1],
+                          'institution': site_text(body[0], home.path, root),
+                          'detail': site_text('\n\n'.join(body[1:]), home.path, root)})
+    awards_intro, awards_entries = split_sections(home.field('Selected awards'), 3, f'{home.path}, Selected awards')
+    awards = [{'date': entry.heading, 'text': site_text(entry.body, home.path, root)} for entry in awards_entries]
     if any(not item['text'] for item in awards):
-        raise ContentError(f'{awards_doc.path}: each date heading needs an award description.')
+        raise ContentError(f'{home.path}: each ### award date needs an award description.')
     return {
         'profile': profile, 'papers': papers, 'selected_ids': selected_ids,
-        'research': research, 'selected': selected, 'recent': recent,
-        'selected_link': public_link(single_link(selected.intro, selected.path), selected.path, root),
-        'recent_link': public_link(single_link(recent.intro, recent.path), recent.path, root),
-        'recent_count': integer(recent, 'Display count'),
-        'news': news, 'news_title': news_doc.title,
-        'news_intro': site_text(news_doc.intro, news_doc.path, root),
-        'education': education, 'education_title': education_doc.title,
-        'education_intro': site_text(education_doc.intro, education_doc.path, root),
-        'awards': awards, 'awards_title': awards_doc.title,
-        'awards_intro': site_text(awards_doc.intro, awards_doc.path, root),
+        'research_title': research.title, 'research_intro': site_text(research.intro, research.path, root),
+        'research_note': site_text(research.meta('author_order_note', allow_empty=True), research.path, root),
+        'research_intros': research_intros,
+        'selected_title': 'Selected research', 'recent_title': 'Recent news',
+        'selected_note': site_text('\n\n'.join(selected_parts[1:]), home.path, root),
+        'recent_intro': site_text('\n\n'.join(recent_parts[1:]), home.path, root),
+        'selected_link': selected_link, 'recent_link': recent_link,
+        'recent_count': number(home.meta('recent_news_count'), f'{home.path}, recent_news_count'),
+        'news': news, 'news_title': news_doc.title, 'news_intro': site_text(news_doc.intro, news_doc.path, root),
+        'education': education, 'education_title': 'Education', 'education_intro': site_text(education_intro, home.path, root),
+        'awards': awards, 'awards_title': 'Selected awards', 'awards_intro': site_text(awards_intro, home.path, root),
     }

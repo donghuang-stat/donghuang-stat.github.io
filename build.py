@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build three static pages and compatibility redirects from content/*.md."""
+"""Build three static pages and compatibility redirects from home.md, research.md, and news.md."""
 from collections import defaultdict
 from html import escape
 from pathlib import Path
@@ -130,13 +130,13 @@ def home_page():
       <figure class="portrait"><img src="{e(PROFILE['photo']['url'])}" width="4160" height="6240" alt="{e(PROFILE['photo']['label'])}" fetchpriority="high"><figcaption>{inline(PROFILE['caption'])}</figcaption></figure>
     </section>
     <section class="content-section" id="selected-research" aria-labelledby="selected-title">
-      <div class="section-heading"><h2 id="selected-title">{e(DATA['selected'].title)}</h2>{link(selected_link['label'], selected_link['url'], 'section-link')}</div>
+      <div class="section-heading"><h2 id="selected-title">{e(DATA['selected_title'])}</h2>{link(selected_link['label'], selected_link['url'], 'section-link')}</div>
       {papers_html(selected, compact=True)}
-      {blocks(DATA['selected'].field('Note', optional=True), 'alpha-note')}
+      {blocks(DATA['selected_note'], 'alpha-note')}
     </section>
     <section class="content-section" id="recent-news" aria-labelledby="recent-title">
-      <div class="section-heading"><h2 id="recent-title">{e(DATA['recent'].title)}</h2>{link(recent_link['label'], recent_link['url'], 'section-link')}</div>
-      {news_html(DATA['news'][:DATA['recent_count']])}
+      <div class="section-heading"><h2 id="recent-title">{e(DATA['recent_title'])}</h2>{link(recent_link['label'], recent_link['url'], 'section-link')}</div>
+      {blocks(DATA['recent_intro'])}{news_html(DATA['news'][:DATA['recent_count']])}
     </section>
     <section class="content-section" id="education" aria-labelledby="education-title">
       <div class="section-heading"><h2 id="education-title">{e(DATA['education_title'])}</h2></div>
@@ -150,11 +150,11 @@ def home_page():
 def research_page():
     manuscripts = [p for p in DATA['papers'] if p['group'] == 'manuscripts']
     publications = [p for p in DATA['papers'] if p['group'] == 'publications']
-    return f'''<header class="page-intro"><p class="eyebrow">{e(PROFILE['name'])} · {e(DATA['research'].title)}</p><h1>{e(DATA['research'].title)}</h1>
-      {blocks(DATA['research'].intro)}{blocks(DATA['research'].field('Note', optional=True), 'subtle')}
+    return f'''<header class="page-intro"><p class="eyebrow">{e(PROFILE['name'])} · {e(DATA['research_title'])}</p><h1>{e(DATA['research_title'])}</h1>
+      {blocks(DATA['research_intro'])}{blocks(DATA['research_note'], 'subtle')}
       <nav class="section-nav" aria-label="Research sections"><a href="#manuscripts">Manuscripts</a><a href="#publications">Publications</a>{link('Google Scholar ↗', PROFILE['scholar'])}</nav></header>
-      <section class="content-section" id="manuscripts"><div class="status-heading"><h2>Manuscripts</h2><span class="count">{len(manuscripts)}</span></div>{papers_html(manuscripts)}</section>
-      <section class="content-section" id="publications"><div class="status-heading"><h2>Publications</h2><span class="count">{len(publications)}</span></div>{papers_html(publications)}</section>'''
+      <section class="content-section" id="manuscripts"><div class="status-heading"><h2>Manuscripts</h2><span class="count">{len(manuscripts)}</span></div>{blocks(DATA['research_intros']['manuscripts'])}{papers_html(manuscripts)}</section>
+      <section class="content-section" id="publications"><div class="status-heading"><h2>Publications</h2><span class="count">{len(publications)}</span></div>{blocks(DATA['research_intros']['publications'])}{papers_html(publications)}</section>'''
 
 def news_page():
     groups = defaultdict(list)

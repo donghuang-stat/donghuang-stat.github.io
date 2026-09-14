@@ -16,15 +16,13 @@ SITE_HOST = "donghuang-stat.github.io"
 SITE_FILES = (
     "index.html", "research.html", "news.html",
     "publications/index.html", "news/index.html", "cv/index.html",
-    "content/profile.md", "content/education.md", "content/awards.md",
-    "content/news.md", "content/recent-news.md", "content/selected-research.md",
-    "content/research.md",
-    "sources/about.md", "sources/publications.md", "sources/cv-2608.txt",
+    "home.md", "research.md", "news.md",
     ".nojekyll", "build.py", "content.py", "serve.py",
 )
 PUBLISH_FILES = SITE_FILES + ("publish.py",)
 OPTIONAL_FILES = ("README.md", ".gitignore")
-LEGACY_FILES = ("data/content.json", "data/cv.json")
+LEGACY_FILES = ("data/content.json", "data/cv.json",
+                "sources/about.md", "sources/publications.md", "sources/cv-2608.txt")
 ASSET_TYPES = {".pdf", ".jpg", ".jpeg", ".png", ".webp", ".svg", ".gif",
                ".css", ".js", ".ico", ".woff", ".woff2"}
 
@@ -62,14 +60,15 @@ def owned_path(name, root=ROOT):
     if name in PUBLISH_FILES + OPTIONAL_FILES:
         return True
     if name in LEGACY_FILES:
-        return not (root / name).exists()  # Only remove the retired JSON sources.
+        return not ((root / name).exists() or (root / name).is_symlink())
     path = PurePosixPath(name)
     if path.is_absolute() or any(part.startswith(".") for part in path.parts):
         return False
     if not path.parts:
         return False
     if path.parts[0] == "content":
-        return path.suffix.lower() == ".md"
+        # Retired split Markdown sources can only be removed, never uploaded.
+        return path.suffix.lower() == ".md" and not ((root / name).exists() or (root / name).is_symlink())
     return path.parts[0] in {"assets", "_pages"} and path.suffix.lower() in ASSET_TYPES
 
 
@@ -91,7 +90,7 @@ def publish_paths(root=ROOT, tracked=None):
         tracked = git("ls-files", "-z", capture=True).split("\0")
     paths = set(PUBLISH_FILES)
     paths.update(name for name in tracked if name and owned_path(name, root))
-    for directory in ("content", "assets", "_pages"):
+    for directory in ("assets", "_pages"):
         folder = root / directory
         reject_symlinks(folder, root)
         for path in folder.rglob("*"):
