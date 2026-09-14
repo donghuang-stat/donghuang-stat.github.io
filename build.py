@@ -73,6 +73,8 @@ def paper_item(paper, compact=False):
         extra += blocks(paper['venue'], 'paper-note')
     elif paper.get('selected_note'):
         extra += blocks(paper['selected_note'], 'paper-note')
+    elif paper.get('group') == 'publications':
+        extra += blocks(paper['venue'], 'paper-note')
     if paper.get('note') and not compact:
         extra += blocks(paper['note'], 'paper-note')
     links = ''.join(link(item['label'] + ' ↗', item['url']) for item in paper.get('links', []))

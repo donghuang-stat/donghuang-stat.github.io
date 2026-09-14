@@ -89,10 +89,10 @@ My research interests are in statistics, probability and theoretical computer sc
 - ID: 2406.05428
 - Authors: Dong Huang; Xianwen Song; Pengkun Yang
 - Year: 2025
-- Venue: IEEE Transactions on Information Theory, 2025 (long version); COLT, 2024 (short version)
+- Venue: IEEE Transactions on Information Theory, 2025 (long version)\
+  The 37th Conference on Learning Theory (COLT), 2024 (short version)
 - Short venue: IEEE TIT / COLT
 - Author order: Alphabetical
-- Selected note: IEEE Transactions on Information Theory, 2025 · COLT, 2024
 
 - [arXiv](https://arxiv.org/abs/2406.05428)
 - [Journal](https://ieeexplore.ieee.org/document/11197490)

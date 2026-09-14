@@ -52,7 +52,14 @@ recent_news_count: 3
 - [Poster](assets/new-poster.pdf)
 ```
 
-ID 必须唯一；作者姓名用分号分隔。`Author order` 填 `Alphabetical` 显示 α–β，填 `Listed` 不显示该标记。可选字段 `- Equal contribution: Name; Name` 标记共同一作，`- Note: 备注` 显示在 Research，`- Selected note: 备注` 显示在首页。作者和论文顺序都以文件中的排列为准。
+ID 必须唯一；作者姓名用分号分隔。`Author order` 填 `Alphabetical` 显示 α–β，填 `Listed` 不显示该标记。可选字段 `- Equal contribution: Name; Name` 标记共同一作，`- Note: 备注` 显示在 Research。作者和论文顺序都以文件中的排列为准。
+
+首页精选中的已发表论文默认显示与 Research 相同的 Venue；需要首页专用说明时，可用 `- Selected note: 说明` 覆盖。字段内需要明确换行时，在行末加反斜杠 `\`，下一行缩进两个空格，例如：
+
+```markdown
+- Venue: IEEE Transactions on Information Theory, 2025 (long version)\
+  The 37th Conference on Learning Theory (COLT), 2024 (short version)
+```
 
 论文标题或链接只需修改一次，首页精选会同步更新。论文被接收后，更新 Venue 和 Short venue，并把整条记录移动到 Publications。要加入首页精选，把该论文 ID 加到 `home.md` 的 `selected_papers`。
 

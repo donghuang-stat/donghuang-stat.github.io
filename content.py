@@ -105,6 +105,10 @@ def inline(text, allow_links=True):
     i = 0
     while i < len(text):
         char = text[i]
+        if char == '\\' and text[i + 1:i + 2] == '\n':
+            result.append('<br>\n')
+            i += 2
+            continue
         if char == '\\' and i + 1 < len(text) and text[i + 1] in r'\`*_{}[]()#+-.!<>|':
             result.append(escape(text[i + 1], quote=True))
             i += 2
@@ -144,6 +148,17 @@ def paragraphs(text):
     return [part.strip() for part in re.split(r'\n\s*\n', text.strip()) if part.strip()]
 
 
+def join_markdown_lines(lines):
+    """Fold ordinary line wrapping; preserve an explicit Markdown backslash break."""
+    result = ''
+    for line in lines:
+        if result:
+            trailing_slashes = len(result) - len(result.rstrip('\\'))
+            result += '\n' if trailing_slashes % 2 else ' '
+        result += line.strip()
+    return result
+
+
 def blocks(text, paragraph_class=''):
     result = []
     attrs = f' class="{escape(paragraph_class, quote=True)}"' if paragraph_class else ''
@@ -155,7 +170,7 @@ def blocks(text, paragraph_class=''):
             tag, matches = ('ul', bullets) if all(bullets) else ('ol', numbers)
             result.append(f'<{tag}>' + ''.join(f'<li>{inline(m[1])}</li>' for m in matches) + f'</{tag}>')
         else:
-            result.append(f'<p{attrs}>' + inline(' '.join(line.strip() for line in lines)) + '</p>')
+            result.append(f'<p{attrs}>' + inline(join_markdown_lines(lines)) + '</p>')
     return ''.join(result)
 
 
@@ -320,7 +335,7 @@ def paper_record(section, group, doc, root):
             fields[key] = value
             last_field = key
         elif line.startswith(('  ', '\t')) and last_field:
-            fields[last_field] += ' ' + line.strip()
+            fields[last_field] = join_markdown_lines((fields[last_field], line))
         else:
             if line.startswith('#'):
                 raise ContentError(f'{context}: each paper starts with ###, followed by its field list.')
