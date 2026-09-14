@@ -56,6 +56,7 @@ My research interests are in statistics, probability and theoretical computer sc
 - Note: Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum.
 
 - [arXiv](https://arxiv.org/abs/2606.17634)
+- [journal](https://www.sciencedirect.com/science/article/pii/S305139012600022X)
 - [Poster](https://donghuang-stat.github.io/_pages/2026_Peking_Tsinghua_Poster.pdf)
 
 ### Attributed Network Alignment: Statistical Limits and Efficient Algorithm
