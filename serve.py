@@ -18,7 +18,7 @@ class Rebuilder:
 
     def fingerprint(self):
         files = [self.root / name for name in
-                 ('home.md', 'research.md', 'news.md', 'build.py', 'content.py')]
+                 ('home.md', 'research.md', 'news.md', 'build.py', 'content.py', 'assets/style.css')]
         result = []
         for path in files:
             try:

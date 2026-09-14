@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build three static pages and compatibility redirects from home.md, research.md, and news.md."""
 from collections import defaultdict
+from hashlib import sha256
 from html import escape
 from pathlib import Path
 import sys
@@ -15,6 +16,10 @@ def link(label, url, class_name='', new_tab=False):
     attrs = f' class="{e(class_name)}"' if class_name else ''
     external = ' target="_blank" rel="noopener noreferrer"' if url.startswith('https://') or new_tab else ''
     return f'<a href="{e(url)}"{attrs}{external}>{e(label)}</a>'
+
+def stylesheet_href():
+    version = sha256((ROOT / 'assets/style.css').read_bytes()).hexdigest()[:12]
+    return f'assets/style.css?v={version}'
 
 def nav(current):
     items = [('home', 'Home', 'index.html'), ('research', 'Research', 'research.html'),
@@ -38,7 +43,7 @@ def document(title, current, content):
   <meta name="description" content="{e(PROFILE['description'])}">
   <title>{e(full_title)}</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="{stylesheet_href()}">
   <script src="assets/site.js" defer></script>
 </head>
 <body>

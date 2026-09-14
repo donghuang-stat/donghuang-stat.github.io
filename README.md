@@ -12,10 +12,10 @@
 
 网页编辑是最方便的更新方式，不需要在本地运行 Python：
 
-1. 打开仓库的 [homepage-redesign 分支](https://github.com/donghuang-stat/donghuang-stat.github.io/tree/homepage-redesign)。
+1. 打开[网站仓库](https://github.com/donghuang-stat/donghuang-stat.github.io)；默认分支是 `homepage-redesign`。
 2. 打开 `home.md`、`research.md` 或 `news.md`，点击铅笔按钮修改。
 3. 点击 **Commit changes**，直接提交到 `homepage-redesign`；也可以创建 PR，合并到这个分支后再发布。
-4. 在 [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) 等待构建和部署任务变绿，再刷新官网。
+4. 在 [GitHub Actions](https://github.com/donghuang-stat/donghuang-stat.github.io/actions) 等待构建和部署任务变绿，再刷新官网。浏览器可能缓存旧页面约 10 分钟；看不到更新时可强制刷新。
 
 提交 Markdown 后，GitHub Actions 会自动生成 HTML、检查链接并部署。不要手动修改生成的 HTML。如果 Markdown 格式或链接有误，构建会失败并保留上次成功发布的网站；打开失败任务的日志即可查看需要修改的位置。
 
@@ -116,7 +116,7 @@ python3 publish.py -m "Update homepage content"
 
 `--check` 只重建和检查内容、链接及资源。发布命令会重建、检查、提交并推送；远端有尚未合入的更新时会停止，不会强制覆盖。推送后由同一个 GitHub Actions 工作流自动构建和部署，等待任务成功即可。
 
-GitHub Pages 的发布来源是 **GitHub Actions**，仅发布 `homepage-redesign` 分支；`master` 保留旧站备份。当前电脑直接在 `page/` 中更新即可，换电脑后需配置 GitHub 写入权限。
+`homepage-redesign` 是仓库默认分支。GitHub Pages 的发布来源是 **GitHub Actions**，仅发布这个分支；`master` 保留旧站备份。当前电脑直接在 `page/` 中更新即可，换电脑后需配置 GitHub 写入权限。
 
 ## 照片、PDF 和模板
 
