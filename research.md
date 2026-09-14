@@ -56,7 +56,7 @@ My research interests are in statistics, probability and theoretical computer sc
 - Note: Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum.
 
 - [arXiv](https://arxiv.org/abs/2606.17634)
-- [journal](https://www.sciencedirect.com/science/article/pii/S305139012600022X)
+- [Journal](https://www.sciencedirect.com/science/article/pii/S305139012600022X)
 - [Poster](https://donghuang-stat.github.io/_pages/2026_Peking_Tsinghua_Poster.pdf)
 
 ### Attributed Network Alignment: Statistical Limits and Efficient Algorithm
@@ -96,7 +96,7 @@ My research interests are in statistics, probability and theoretical computer sc
 
 - [arXiv](https://arxiv.org/abs/2406.05428)
 - [Journal](https://ieeexplore.ieee.org/document/11197490)
-- [COLT](https://proceedings.mlr.press/v247/huang24b.html)
+- [Conference](https://proceedings.mlr.press/v247/huang24b.html)
 - [Poster](https://donghuang-stat.github.io/_pages/2024_PKU_THU_poster.pdf)
 
 ### Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network
