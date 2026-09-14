@@ -15,7 +15,7 @@ recent_news_count: 3
 
 # Dong Huang
 
-I am a fourth-year Ph.D. student in the Department of Statistics and Data Science at Tsinghua University, very fortunate to be advised by Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/2411.htm).
+I am a fourth-year Ph.D. student in the Department of Statistics and Data Science at Tsinghua University, very fortunate to be advised by Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm).
 
 I obtained my B.S. degree in Mathematics from the Department of Mathematical Sciences at Tsinghua University. My research interests are in statistics, probability and theoretical computer science.
 
@@ -43,7 +43,7 @@ Department of Statistics and Data Science · Host: Prof. [Shuangping Li](https:/
 
 Tsinghua University
 
-Department of Statistics and Data Science · Advisor: Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/2411.htm)
+Department of Statistics and Data Science · Advisor: Prof. [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 
 ### 2019 – 2023 | B.S. in Mathematics
 
