@@ -6,7 +6,7 @@ I will be visiting Prof. [Shuangping Li](https://fifalsp.github.io/) in the Depa
 
 ## July 2026
 
-Our paper "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs" was accepted by Statistical Learning and Data Science (SLADS).
+Our paper "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs" is accepted by Statistical Learning and Data Science (SLADS).
 
 ## June 2026
 
