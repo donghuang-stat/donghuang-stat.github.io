@@ -132,7 +132,7 @@ def home_page():
         <h1 id="name">{e(PROFILE['name'])} <span class="chinese-name" lang="zh">{e(PROFILE['chinese_name'])}</span></h1>
         <p class="role">{inline(PROFILE['role'])}</p>
         <div class="bio">{bio}</div>
-        <div class="hero-links">{''.join(link(item['label'] + ' ↗', item['url'], new_tab=item['label'] == 'CV (PDF)') for item in PROFILE['links'])}</div>
+        <div class="hero-links">{''.join(link(item['label'] + ' ↗', item['url']) for item in PROFILE['links'])}<span class="hero-cv">{link('CV', PROFILE['cv'], new_tab=True)} <span>(Last updated : {e(PROFILE['cv_updated'])})</span></span></div>
       </div>
       <figure class="portrait"><img src="{e(PROFILE['photo']['url'])}" width="4160" height="6240" alt="{e(PROFILE['photo']['label'])}" fetchpriority="high"><figcaption>{inline(PROFILE['caption'])}</figcaption></figure>
     </section>

@@ -4,6 +4,10 @@
 
 I will be visiting Prof. [Shuangping Li](https://fifalsp.github.io/) in the Department of Statistics and Data Science at Yale University from 2026/8/1 to 2027/1/31.
 
+## July 2026
+
+Our paper "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs" was accepted by Statistical Learning and Data Science (SLADS).
+
 ## June 2026
 
 I received Outstanding Poster Award at the 10th Tsinghua-Peking Statistics Forum for our paper "Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs".

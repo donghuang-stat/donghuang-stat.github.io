@@ -27,6 +27,7 @@
 
 ```text
 cv: assets/CV_2608.pdf
+cv_updated: 2026/08
 photo: assets/portrait.jpg
 selected_papers: 2602.08173, 2601.13966, 2510.25289, 2406.05428
 recent_news_count: 3
@@ -120,7 +121,7 @@ python3 publish.py -m "Update homepage content"
 
 ## 照片、PDF 和模板
 
-CV 是独立 PDF，网页修改不会改变 PDF 内容。替换 `assets/CV_2608.pdf` 最方便；使用新文件名时，只需更新 `home.md` 的 `cv`。照片同理，替换文件或修改 `photo`。正文中的本地链接相对于这三个根目录 Markdown 文件填写，例如 `[Poster](assets/new-poster.pdf)`。
+CV 是独立 PDF，网页修改不会改变 PDF 内容。替换 `assets/CV_2608.pdf` 最方便；使用新文件名时，更新 `home.md` 的 `cv`，并用 `cv_updated` 设置首页显示的更新月份；只有“CV”两字是 PDF 链接。照片同理，替换文件或修改 `photo`。正文中的本地链接相对于这三个根目录 Markdown 文件填写，例如 `[Poster](assets/new-poster.pdf)`。
 
 `assets/`、`_pages/` 中的 PDF、常见图片、CSS、JavaScript、图标和字体资源会自动纳入发布。`_pages/` 保留正在使用的五份海报，以维持原链接；旧网址 `/publications/`、`/news/`、`/cv/` 保留跳转。
 

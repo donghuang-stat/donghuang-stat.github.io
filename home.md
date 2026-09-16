@@ -5,6 +5,7 @@ role: Fourth-year Ph.D. student in Statistics · Tsinghua University
 email: hd23@mails.tsinghua.edu.cn
 scholar: https://scholar.google.com/citations?user=YX7RZ70AAAAJ
 cv: assets/CV_2608.pdf
+cv_updated: 2026/08
 photo: assets/portrait.jpg
 photo_alt: Dong Huang standing on rocks beside the sea
 photo_caption: DONG HUANG / 黄栋

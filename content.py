@@ -365,7 +365,7 @@ def paper_record(section, group, doc, root):
 
 
 MONTHS = 'January February March April May June July August September October November December'.split()
-HOME_OPTIONS = {'chinese_name', 'tagline', 'role', 'email', 'scholar', 'cv', 'photo',
+HOME_OPTIONS = {'chinese_name', 'tagline', 'role', 'email', 'scholar', 'cv', 'cv_updated', 'photo',
                 'photo_alt', 'photo_caption', 'description', 'selected_papers', 'recent_news_count'}
 
 
@@ -383,10 +383,11 @@ def load_site(root):
     profile['email_url'] = 'mailto:' + email
     profile['scholar'] = site_url(safe_url(home.meta('scholar')), home.path, root)
     profile['cv'] = site_url(safe_url(home.meta('cv')), home.path, root)
+    profile['cv_updated'] = home.meta('cv_updated')
     if urlsplit(profile['cv']).scheme or not urlsplit(profile['cv']).path.lower().endswith('.pdf'):
         raise ContentError(f'{home.path}: cv must point to a local PDF, e.g. assets/CV_2608.pdf.')
     profile['links'] = [{'label': label, 'url': profile[key]} for label, key in
-                        [('Email', 'email_url'), ('Google Scholar', 'scholar'), ('CV (PDF)', 'cv')]]
+                        [('Email', 'email_url'), ('Google Scholar', 'scholar')]]
 
     research = read_document(root / 'research.md')
     research.only({'Manuscripts', 'Publications'})
