@@ -1,5 +1,5 @@
 ---
-author_order_note: α–β denotes alphabetical author order. An asterisk (*) denotes equal contribution.
+author_order_note: α–β denotes alphabetical author order. (*) denotes equal contribution.
 ---
 
 # Research
