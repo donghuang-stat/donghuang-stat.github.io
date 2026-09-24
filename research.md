@@ -1,5 +1,5 @@
 ---
-author_order_note: α–β denotes alphabetical author order.
+author_order_note: α–β denotes alphabetical author order. An asterisk (*) denotes equal contribution.
 ---
 
 # Research
@@ -44,6 +44,16 @@ My research interests are in statistics, probability and theoretical computer sc
 - [Poster](https://donghuang-stat.github.io/_pages/Bounded_degree_poster.pdf)
 
 ## Publications
+
+### Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts
+
+- ID: neurips-2026-cycle-counts
+- Authors: Xinyuan Fan; Dong Huang; Tianpai Luo; Pengkun Yang; Weichi Wu
+- Year: 2026
+- Venue: The Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
+- Short venue: NeurIPS
+- Author order: Listed
+- Equal contribution: Xinyuan Fan; Dong Huang; Tianpai Luo
 
 ### Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs
 

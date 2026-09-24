@@ -1,5 +1,9 @@
 # News
 
+## September 2026
+
+Our paper "Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts" is accepted by the Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS 2026).
+
 ## July 2026
 
 I will be visiting Prof. [Shuangping Li](https://fifalsp.github.io/) in the Department of Statistics and Data Science at Yale University from 2026/8/1 to 2027/1/31.
