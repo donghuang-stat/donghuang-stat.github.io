@@ -2,7 +2,7 @@
 
 ## September 2026
 
-Our paper "Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts" is accepted by the Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS 2026).
+Our paper "Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts" is accepted by the 40th Annual Conference on Neural Information Processing Systems (NeurIPS 2026).
 
 ## July 2026
 

@@ -50,7 +50,7 @@ My research interests are in statistics, probability and theoretical computer sc
 - ID: neurips-2026-cycle-counts
 - Authors: Xinyuan Fan; Dong Huang; Tianpai Luo; Pengkun Yang; Weichi Wu
 - Year: 2026
-- Venue: The Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
+- Venue: The 40th Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
 - Short venue: NeurIPS
 - Author order: Listed
 - Equal contribution: Xinyuan Fan; Dong Huang; Tianpai Luo
