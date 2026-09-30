@@ -134,7 +134,7 @@ def home_page():
         <div class="bio">{bio}</div>
         <div class="hero-links">{''.join(link(item['label'] + ' ↗', item['url']) for item in PROFILE['links'])}<span class="hero-cv">{link('CV ↗', PROFILE['cv'], new_tab=True)} <span>(Last updated : {e(PROFILE['cv_updated'])})</span></span></div>
       </div>
-      <figure class="portrait"><img src="{e(PROFILE['photo']['url'])}" width="4160" height="6240" alt="{e(PROFILE['photo']['label'])}" fetchpriority="high"><figcaption>{inline(PROFILE['caption'])}</figcaption></figure>
+      <figure class="portrait"><img src="{e(PROFILE['photo']['url'])}" width="1024" height="1536" alt="{e(PROFILE['photo']['label'])}" fetchpriority="high"><figcaption>{inline(PROFILE['caption'])}</figcaption></figure>
     </section>
     <section class="content-section" id="selected-research" aria-labelledby="selected-title">
       <div class="section-heading"><h2 id="selected-title">{e(DATA['selected_title'])}</h2>{link(selected_link['label'], selected_link['url'], 'section-link')}</div>

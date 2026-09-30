@@ -7,7 +7,7 @@ scholar: https://scholar.google.com/citations?user=YX7RZ70AAAAJ
 cv: assets/CV_2608.pdf
 cv_updated: 2026/08
 photo: assets/portrait.jpg
-photo_alt: Dong Huang standing on rocks beside the sea
+photo_alt: Dong Huang standing in front of a waterfall
 photo_caption: DONG HUANG / 黄栋
 description: Dong Huang, fourth-year Ph.D. student in Statistics at Tsinghua University. Research in statistics, probability and theoretical computer science.
 selected_papers: 2602.08173, 2601.13966, 2510.25289, 2406.05428
