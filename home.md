@@ -6,7 +6,7 @@ email: hd23@mails.tsinghua.edu.cn
 scholar: https://scholar.google.com/citations?user=YX7RZ70AAAAJ
 cv: assets/CV_2608.pdf
 cv_updated: 2026/08
-photo: assets/portrait.jpg
+photo: assets/portrait.png
 photo_alt: Dong Huang standing in front of a waterfall
 photo_caption: DONG HUANG / 黄栋
 description: Dong Huang, fourth-year Ph.D. student in Statistics at Tsinghua University. Research in statistics, probability and theoretical computer science.

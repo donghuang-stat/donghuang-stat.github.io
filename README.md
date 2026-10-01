@@ -28,7 +28,7 @@
 ```text
 cv: assets/CV_2608.pdf
 cv_updated: 2026/08
-photo: assets/portrait.jpg
+photo: assets/portrait.png
 selected_papers: 2602.08173, 2601.13966, 2510.25289, 2406.05428
 recent_news_count: 3
 ```
