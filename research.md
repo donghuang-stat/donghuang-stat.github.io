@@ -8,6 +8,17 @@ My research interests are in statistics, probability and theoretical computer sc
 
 ## Manuscripts
 
+### Detecting Random Geometric Graphs with General Kernel
+
+- ID: 2610.12765
+- Authors: Dong Huang; Shuangping Li
+- Year: 2026
+- Venue: Submitted
+- Short venue: Manuscript
+- Author order: Alphabetical
+
+- [arXiv](https://arxiv.org/abs/2610.12765)
+
 ### Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models
 
 - ID: 2602.08173
