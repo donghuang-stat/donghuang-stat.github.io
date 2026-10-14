@@ -8,6 +8,17 @@ My research interests are in statistics, probability and theoretical computer sc
 
 ## Manuscripts
 
+### Graph Matching in Random Geometric Graphs I: Efficient Algorithms
+
+- ID: 2610.16675
+- Authors: Dong Huang; Ankang Jiao; Shuangping Li; Zhangsong Li
+- Year: 2026
+- Venue: Submitted
+- Short venue: Manuscript
+- Author order: Alphabetical
+
+- [arXiv](https://arxiv.org/abs/2610.16675)
+
 ### Detecting Random Geometric Graphs with General Kernel
 
 - ID: 2610.12765
