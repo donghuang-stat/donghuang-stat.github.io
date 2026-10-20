@@ -18,6 +18,7 @@ My research interests are in statistics, probability and theoretical computer sc
 - Author order: Alphabetical
 
 - [arXiv](https://arxiv.org/abs/2610.16675)
+- [Video by Shuangping](https://www.youtube.com/live/tbnTRx9ss9M)
 
 ### Detecting Random Geometric Graphs with General Kernel
 
