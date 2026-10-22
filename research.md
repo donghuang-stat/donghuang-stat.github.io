@@ -13,7 +13,6 @@ My research interests are in statistics, probability and theoretical computer sc
 - ID: 2610.16675
 - Authors: Dong Huang; Ankang Jiao; Shuangping Li; Zhangsong Li
 - Year: 2026
-- Venue: Submitted
 - Short venue: Manuscript
 - Author order: Alphabetical
 
@@ -25,7 +24,6 @@ My research interests are in statistics, probability and theoretical computer sc
 - ID: 2610.12765
 - Authors: Dong Huang; Shuangping Li
 - Year: 2026
-- Venue: Submitted
 - Short venue: Manuscript
 - Author order: Alphabetical
 

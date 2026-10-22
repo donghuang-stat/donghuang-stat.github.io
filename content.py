@@ -341,7 +341,7 @@ def paper_record(section, group, doc, root):
                 raise ContentError(f'{context}: each paper starts with ###, followed by its field list.')
             prose.append(line)
             last_field = None
-    for key in ('ID', 'Authors', 'Year', 'Venue', 'Short venue', 'Author order'):
+    for key in ('ID', 'Authors', 'Year', 'Short venue', 'Author order'):
         if not fields.get(key):
             raise ContentError(f'{context}: add a nonempty - {key}: value line.')
     paper_id = fields['ID']
@@ -357,7 +357,7 @@ def paper_record(section, group, doc, root):
     return {
         'id': paper_id, 'title': section.heading, 'authors': authors,
         'year': number(fields['Year'], context + ', Year', minimum=1), 'group': group,
-        'venue': site_text(fields['Venue'], doc.path, root), 'short_venue': fields['Short venue'],
+        'venue': site_text(fields.get('Venue', ''), doc.path, root), 'short_venue': fields['Short venue'],
         'alphabetical': fields['Author order'] == 'Alphabetical', 'cofirst': cofirst,
         'links': links, 'note': site_text(note, doc.path, root),
         'selected_note': site_text(fields.get('Selected note', ''), doc.path, root),
