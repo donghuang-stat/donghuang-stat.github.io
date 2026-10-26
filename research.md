@@ -8,7 +8,7 @@ My research interests are in statistics, probability and theoretical computer sc
 
 ## Manuscripts
 
-### The lower tail of triangle counts in sparse random graphs
+### The Lower Tail of Triangle Counts in Sparse Random Graphs
 
 - ID: 2610.32879
 - Authors: Dong Huang; Shuangping Li
