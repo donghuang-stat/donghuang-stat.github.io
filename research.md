@@ -8,6 +8,16 @@ My research interests are in statistics, probability and theoretical computer sc
 
 ## Manuscripts
 
+### The lower tail of triangle counts in sparse random graphs
+
+- ID: 2610.32879
+- Authors: Dong Huang; Shuangping Li
+- Year: 2026
+- Short venue: Manuscript
+- Author order: Alphabetical
+
+- [arXiv](https://arxiv.org/abs/2610.32879)
+
 ### Graph Matching in Random Geometric Graphs I: Efficient Algorithms
 
 - ID: 2610.16675
