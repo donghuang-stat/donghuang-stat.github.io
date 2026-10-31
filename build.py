@@ -61,9 +61,11 @@ def document(title, current, content):
 
 def author_list(paper):
     cofirst = paper.get('cofirst', [])
+    author_links = paper.get('author_links', {})
     names = []
     for name in paper['authors']:
-        rendered = e(name) + ('<sup>*</sup>' if name in cofirst else '')
+        rendered = link(name, author_links[name], class_name='author-link') if name in author_links else e(name)
+        rendered += '<sup>*</sup>' if name in cofirst else ''
         if name == PROFILE['name']:
             rendered = f'<span class="author-self">{rendered}</span>'
         names.append(rendered)

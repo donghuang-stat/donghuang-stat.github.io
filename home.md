@@ -4,8 +4,8 @@ tagline: Statistics · Probability
 role: Fourth-year Ph.D. student in Statistics · Tsinghua University
 email: hd23@mails.tsinghua.edu.cn
 scholar: https://scholar.google.com/citations?user=YX7RZ70AAAAJ
-cv: assets/CV_2608.pdf
-cv_updated: 2026/08
+cv: assets/CV_2610.pdf
+cv_updated: 2026/10
 photo: assets/portrait.png
 photo_alt: Dong Huang standing in front of a waterfall
 photo_caption: DONG HUANG / 黄栋

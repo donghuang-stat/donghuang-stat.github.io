@@ -26,8 +26,8 @@
 `home.md` 和 `research.md` 开头两个 `---` 之间是简短的页面设置，每行写 `字段名: 内容`。字段名保持不变，冒号后的值可以直接修改，不需要加引号。例如：
 
 ```text
-cv: assets/CV_2608.pdf
-cv_updated: 2026/08
+cv: assets/CV_2610.pdf
+cv_updated: 2026/10
 photo: assets/portrait.png
 selected_papers: 2602.08173, 2601.13966, 2510.25289, 2406.05428
 recent_news_count: 3
@@ -43,7 +43,7 @@ recent_news_count: 3
 ### Your paper title
 
 - ID: new-paper
-- Authors: Dong Huang; Coauthor Name
+- Authors: Dong Huang; [Coauthor Name](https://example.com)
 - Year: 2026
 - Venue: Submitted
 - Short venue: Manuscript
@@ -53,7 +53,7 @@ recent_news_count: 3
 - [Poster](assets/new-poster.pdf)
 ```
 
-ID 必须唯一；作者姓名用分号分隔。`Author order` 填 `Alphabetical` 显示 α–β，填 `Listed` 不显示该标记。`Venue` 可省略；可选字段 `- Equal contribution: Name; Name` 标记共同一作，`- Note: 备注` 显示在 Research。作者和论文顺序都以文件中的排列为准。
+ID 必须唯一；作者姓名用分号分隔。合作者有个人主页或 Google Scholar 时，可直接把姓名写成 Markdown 链接，网页会显示虚线下划线。`Author order` 填 `Alphabetical` 显示 α–β，填 `Listed` 不显示该标记。`Venue` 可省略；可选字段 `- Equal contribution: Name; Name` 标记共同一作，`- Note: 备注` 显示在 Research。作者和论文顺序都以文件中的排列为准。
 
 首页精选中的已发表论文默认显示与 Research 相同的 Venue；需要首页专用说明时，可用 `- Selected note: 说明` 覆盖。字段内需要明确换行时，在行末加反斜杠 `\`，下一行缩进两个空格，例如：
 
@@ -121,7 +121,7 @@ python3 publish.py -m "Update homepage content"
 
 ## 照片、PDF 和模板
 
-CV 是独立 PDF，网页修改不会改变 PDF 内容。替换 `assets/CV_2608.pdf` 最方便；使用新文件名时，更新 `home.md` 的 `cv`，并用 `cv_updated` 设置首页显示的更新月份；只有“CV ↗”是 PDF 链接，更新日期是普通文字。照片同理，替换文件或修改 `photo`。正文中的本地链接相对于这三个根目录 Markdown 文件填写，例如 `[Poster](assets/new-poster.pdf)`。
+CV 是独立 PDF，网页修改不会改变 PDF 内容。当前英文 LaTeX 源文件是 `cv/resume_en.tex`，生成的 PDF 是 `assets/CV_2610.pdf`；换用新文件名时，更新 `home.md` 的 `cv`，并用 `cv_updated` 设置首页显示的更新月份。只有“CV ↗”是 PDF 链接，更新日期是普通文字。照片同理，替换文件或修改 `photo`。正文中的本地链接相对于这三个根目录 Markdown 文件填写，例如 `[Poster](assets/new-poster.pdf)`。
 
 `assets/`、`_pages/` 中的 PDF、常见图片、CSS、JavaScript、图标和字体资源会自动纳入发布。`_pages/` 保留正在使用的五份海报，以维持原链接；旧网址 `/publications/`、`/news/`、`/cv/` 保留跳转。
 

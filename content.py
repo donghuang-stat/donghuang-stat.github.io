@@ -347,7 +347,15 @@ def paper_record(section, group, doc, root):
     paper_id = fields['ID']
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', paper_id):
         raise ContentError(f'{context}: ID uses letters, numbers, dots, dashes, or underscores.')
-    authors = [name.strip() for name in fields['Authors'].split(';')]
+    authors, author_links = [], {}
+    for author in (value.strip() for value in fields['Authors'].split(';')):
+        if author.startswith('['):
+            item = public_link(single_link(author, context + ', Authors'), doc.path, root)
+            name = item['label'].strip()
+            author_links[name] = item['url']
+        else:
+            name = author
+        authors.append(name)
     cofirst = [name.strip() for name in fields.get('Equal contribution', '').split(';') if name.strip()]
     if not all(authors) or len(set(authors)) != len(authors) or not set(cofirst) <= set(authors):
         raise ContentError(f'{context}: separate unique authors with semicolons; equal contributors must be in Authors.')
@@ -359,7 +367,7 @@ def paper_record(section, group, doc, root):
         'year': number(fields['Year'], context + ', Year', minimum=1), 'group': group,
         'venue': site_text(fields.get('Venue', ''), doc.path, root), 'short_venue': fields['Short venue'],
         'alphabetical': fields['Author order'] == 'Alphabetical', 'cofirst': cofirst,
-        'links': links, 'note': site_text(note, doc.path, root),
+        'author_links': author_links, 'links': links, 'note': site_text(note, doc.path, root),
         'selected_note': site_text(fields.get('Selected note', ''), doc.path, root),
     }
 

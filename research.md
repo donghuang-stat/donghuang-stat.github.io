@@ -11,7 +11,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### The Lower Tail of Triangle Counts in Sparse Random Graphs
 
 - ID: 2610.32879
-- Authors: Dong Huang; Shuangping Li
+- Authors: Dong Huang; [Shuangping Li](https://fifalsp.github.io/)
 - Year: 2026
 - Short venue: Manuscript
 - Author order: Alphabetical
@@ -21,7 +21,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Graph Matching in Random Geometric Graphs I: Efficient Algorithms
 
 - ID: 2610.16675
-- Authors: Dong Huang; Ankang Jiao; Shuangping Li; Zhangsong Li
+- Authors: Dong Huang; Ankang Jiao; [Shuangping Li](https://fifalsp.github.io/); [Zhangsong Li](https://zhangsong-li.github.io/)
 - Year: 2026
 - Short venue: Manuscript
 - Author order: Alphabetical
@@ -32,7 +32,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Detecting Random Geometric Graphs with General Kernel
 
 - ID: 2610.12765
-- Authors: Dong Huang; Shuangping Li
+- Authors: Dong Huang; [Shuangping Li](https://fifalsp.github.io/)
 - Year: 2026
 - Short venue: Manuscript
 - Author order: Alphabetical
@@ -42,7 +42,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Fundamental Limits of Community Detection in Contextual Multi-Layer Stochastic Block Models
 
 - ID: 2602.08173
-- Authors: Shuyang Gong; Dong Huang; Zhangsong Li
+- Authors: [Shuyang Gong](https://shuyanggong.github.io/); Dong Huang; [Zhangsong Li](https://zhangsong-li.github.io/)
 - Year: 2026
 - Venue: Submitted
 - Short venue: Manuscript
@@ -50,10 +50,10 @@ My research interests are in statistics, probability and theoretical computer sc
 
 - [arXiv](https://arxiv.org/abs/2602.08173)
 
-### Sample Complexity of Correlation Detection in Erdős-Rényi graphs
+### Sample Complexity of Correlation Detection in Erdős-Rényi Graphs
 
 - ID: 2601.13966
-- Authors: Dong Huang; Pengkun Yang
+- Authors: Dong Huang; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2026
 - Venue: Submitted
 - Short venue: Manuscript
@@ -65,7 +65,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Testing Correlation in Graphs by Counting Bounded Degree Motifs
 
 - ID: 2510.25289
-- Authors: Dong Huang; Pengkun Yang
+- Authors: Dong Huang; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2025
 - Venue: Submitted
 - Short venue: Manuscript
@@ -79,7 +79,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts
 
 - ID: neurips-2026-cycle-counts
-- Authors: Xinyuan Fan; Dong Huang; Tianpai Luo; Pengkun Yang; Weichi Wu
+- Authors: Xinyuan Fan; Dong Huang; Tianpai Luo; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm); [Weichi Wu](https://www.stat.tsinghua.edu.cn/en/info/1023/1048.htm)
 - Year: 2026
 - Venue: The 40th Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
 - Short venue: NeurIPS
@@ -89,7 +89,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Prompt Perturbation for Reliable LLM Evaluation over Comparison Graphs
 
 - ID: 2606.17634
-- Authors: Dong Huang; Jianbo Sun; Pengkun Yang
+- Authors: Dong Huang; Jianbo Sun; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2026
 - Venue: Statistical Learning and Data Science (SLADS), to appear
 - Short venue: SLADS
@@ -103,7 +103,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Attributed Network Alignment: Statistical Limits and Efficient Algorithm
 
 - ID: 2604.04365
-- Authors: Dong Huang; Chenyang Tian; Pengkun Yang
+- Authors: Dong Huang; Chenyang Tian; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2026
 - Venue: The 43rd International Conference on Machine Learning (ICML), 2026
 - Short venue: ICML
@@ -115,7 +115,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Sample Complexity of Correlation Detection in the Gaussian Wigner Model
 
 - ID: 2505.14138
-- Authors: Dong Huang; Pengkun Yang
+- Authors: Dong Huang; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2025
 - Venue: The 42nd International Conference on Machine Learning (ICML), 2025
 - Short venue: ICML
@@ -128,7 +128,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Information-Theoretic Thresholds for the Alignments of Partially Correlated Graphs
 
 - ID: 2406.05428
-- Authors: Dong Huang; Xianwen Song; Pengkun Yang
+- Authors: Dong Huang; [Xianwen Song](https://stat.uchicago.edu/people/profile/xianwen-song/); [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2025
 - Venue: IEEE Transactions on Information Theory, 2025 (long version)\
   The 37th Conference on Learning Theory (COLT), 2024 (short version)
@@ -143,7 +143,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network
 
 - ID: neurocomputing-2023
-- Authors: Yucong Lin; Silu Li; Jiaxing Xu; Jiawei Xu; Dong Huang; Wendi Zheng; Yuan Cao; Junwei Lu
+- Authors: [Yucong Lin](https://scholar.google.com/citations?user=PIlRPSMAAAAJ); Silu Li; Jiaxing Xu; Jiawei Xu; Dong Huang; Wendi Zheng; [Yuan Cao](https://yuancaohku.github.io/); [Junwei Lu](https://junwei-lu.github.io/)
 - Year: 2023
 - Venue: Neurocomputing, 2023
 - Short venue: Neurocomputing
