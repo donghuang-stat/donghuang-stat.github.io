@@ -79,7 +79,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Learning Global Temporal Dynamics in Sparse Networks via Cycle Counts
 
 - ID: neurips-2026-cycle-counts
-- Authors: Xinyuan Fan; Dong Huang; Tianpai Luo; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm); [Weichi Wu](https://www.stat.tsinghua.edu.cn/en/info/1023/1048.htm)
+- Authors: [Xinyuan Fan](https://scholar.google.com/citations?user=i6lqKFoAAAAJ&hl=en); Dong Huang; [Tianpai Luo](https://scholar.google.com/citations?user=4ClEa4UAAAAJ&hl=en); [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm); [Weichi Wu](https://www.stat.tsinghua.edu.cn/en/info/1023/1048.htm)
 - Year: 2026
 - Venue: The 40th Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
 - Short venue: NeurIPS
@@ -103,7 +103,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Attributed Network Alignment: Statistical Limits and Efficient Algorithm
 
 - ID: 2604.04365
-- Authors: Dong Huang; Chenyang Tian; [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
+- Authors: Dong Huang; [Chenyang Tian](https://scholar.google.com/citations?user=coBpn0IAAAAJ&hl=en); [Pengkun Yang](https://www.stat.tsinghua.edu.cn/info/1023/4126.htm)
 - Year: 2026
 - Venue: The 43rd International Conference on Machine Learning (ICML), 2026
 - Short venue: ICML
@@ -143,7 +143,7 @@ My research interests are in statistics, probability and theoretical computer sc
 ### Graph Over-Parameterization: Why the Graph Helps the Training of Deep Graph Convolutional Network
 
 - ID: neurocomputing-2023
-- Authors: [Yucong Lin](https://scholar.google.com/citations?user=PIlRPSMAAAAJ); Silu Li; Jiaxing Xu; Jiawei Xu; Dong Huang; Wendi Zheng; [Yuan Cao](https://yuancaohku.github.io/); [Junwei Lu](https://junwei-lu.github.io/)
+- Authors: [Yucong Lin](https://scholar.google.com/citations?user=PIlRPSMAAAAJ); Silu Li; Jiaxing Xu; Jiawei Xu; Dong Huang; [Wendi Zheng](https://scholar.google.com/citations?user=6v5wcQ8AAAAJ&hl=en); [Yuan Cao](https://yuancaohku.github.io/); [Junwei Lu](https://junwei-lu.github.io/)
 - Year: 2023
 - Venue: Neurocomputing, 2023
 - Short venue: Neurocomputing
